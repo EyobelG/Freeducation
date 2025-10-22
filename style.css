@@ -1,0 +1,56 @@
+/* LAKERS PURPLE: #552583 */
+/* LAKERS GOLD: #FDB927 */
+
+/* WHOLE BODY STYLE */
+body {
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+        background-color: #f0f8ff;
+        padding-top: 50px;
+}
+/* WHOLE BODY STYLE */
+
+/* NAVBAR STYLES */
+.topnav {
+        background-color: #552583;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        z-index: 10;
+}
+    
+.topnav b {
+        float: left;
+        color: #FDB927;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+}
+      
+.topnav a {
+        float: left;
+        color: #FDB927;
+        text-align: center;
+        padding: 12px 16px;
+        font-family: "Times New Roman", Times, serif;
+        text-decoration: none;
+        font-size: 22px;
+}
+      
+.topnav a:hover {
+        background-color: #4b187b;
+        color: #FDB927;
+}
+      
+.topnav a.active {
+        background-color: #3e1264;
+        color: #FDB927;
+}
+
+.topnav img{
+        height: 50px;
+}    
+/* NAVBAR STYLES */
+
