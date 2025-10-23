@@ -5,7 +5,7 @@
 body {
         margin: 0;
         font-family: "Times New Roman", Times, serif;
-        background-color: #f0f8ff;
+        background-color: #e0bbff;
         padding-top: 50px;
 }
 /* WHOLE BODY STYLE */
@@ -54,3 +54,32 @@ body {
 }    
 /* NAVBAR STYLES */
 
+.titleDiv{
+        background-color: lightblue;
+        background-image: url('images/banner.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        padding-top: 200px;
+        padding-bottom: 200px;
+        opacity: 0;  /* Initially invisible */
+        animation: fadeIn 0.5s ease-in forwards;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-size: 100px;
+        text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+}
+    
