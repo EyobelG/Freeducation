@@ -57,8 +57,41 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            object-position: center; 
+            object-fit: contain; /* Changed from default to contain - prevents squeezing */
+            object-position: center; /* Centers the image */
+        }
+
+        .tutor-info {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            min-width: 300px;
+            z-index: 10;
+        }
+
+        .tutor-name {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .tutor-details {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .tutor-location {
+            font-size: 1em;
+            color: #888;
+            font-style: italic;
         }
 
         .nav label {
@@ -263,5 +296,35 @@
     </li>
 </ul>
     <div id="footer-container"></div>
+
+    <script>
+        // Tutor information array
+        const tutors = [
+            { name: "Pratyush", age: 25, location: "San Francisco, CA" },
+            { name: "Jihong", age: 29, location: "New York, NY" },
+            { name: "Bryce", age: 44, location: "Austin, TX" },
+            { name: "John", age: 54, location: "Boston, MA" },
+            { name: "Kevin", age: 28, location: "Seattle, WA" },
+            { name: "Tom", age: 67, location: "Miami, FL" },
+            { name: "Richard", age: 31, location: "Denver, CO" },
+            { name: "Sheila", age: 27, location: "Boston, MA" },
+            { name: "Tiffany", age: 25, location: "Medford, MA" }
+        ];
+
+        const slides = document.querySelectorAll('.slide');
+
+        // Add tutor info to each slide
+        slides.forEach((slide, index) => {
+            const tutor = tutors[index];
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'tutor-info';
+            infoDiv.innerHTML = `
+                <div class="tutor-name">${tutor.name}</div>
+                <div class="tutor-details">Age: ${tutor.age}</div>
+                <div class="tutor-location">📍 ${tutor.location}</div>
+            `;
+            slide.appendChild(infoDiv);
+        });
+    </script>
 </body>
 </html>
