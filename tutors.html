@@ -46,6 +46,8 @@
             height: 420px;
             display: block;
             position: absolute;
+            background: #f0f0f0;
+            overflow: hidden;
 
             transform: scale(0);
 
@@ -55,6 +57,8 @@
         .slide img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
+            object-position: center; 
         }
 
         .nav label {
@@ -124,7 +128,10 @@
         input#img-3:checked ~ .nav-dots label#img-dot-3,
         input#img-4:checked ~ .nav-dots label#img-dot-4,
         input#img-5:checked ~ .nav-dots label#img-dot-5,
-        input#img-6:checked ~ .nav-dots label#img-dot-6 {
+        input#img-6:checked ~ .nav-dots label#img-dot-6,
+        input#img-7:checked ~ .nav-dots label#img-dot-7,
+        input#img-8:checked ~ .nav-dots label#img-dot-8,
+        input#img-9:checked ~ .nav-dots label#img-dot-9 {
             background: rgba(0, 0, 0, 0.8);
         }
 
@@ -142,25 +149,15 @@
                 <a href="donate.html">Donate</a>
                 <a href="contact.html">Contact</a>  
     </div>
-    <!-- <div id = "meet-tutors" class = "image-container">
-        <img src="images/indian.jpeg" alt="headshot">
-        <img src="images/headshot1.jpeg"alt="headshot">
-        <img src="images/headshot5.jpeg" alt="headshot">
-        <img src="images/headshotman.jpg" alt="headshot">
-        <img src="images/newtutor2.jpg" alt="headshot">
-        <img src="images/mandem.jpg" alt="headshot">
-        <img src="images/newtutor.jpg" alt="headshot">
-        <img src="images/headshot8.jpg" alt="headshot">
-        <img src="images/tutor1.jpg" alt="headshot">
-    </div> --> 
+
 <ul class="slides">
     <input type="radio" name="radio-btn" id="img-1" checked />
     <li class="slide-container">
         <div class="slide">
-            <img src= "images/indian.jpeg" />
+            <img src="images/indian.jpeg" />
         </div>
         <div class="nav">
-            <label for="img-6" class="prev">&#x2039;</label>
+            <label for="img-9" class="prev">&#x2039;</label>
             <label for="img-2" class="next">&#x203a;</label>
         </div>
     </li>
@@ -168,7 +165,7 @@
     <input type="radio" name="radio-btn" id="img-2" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/headshot1.jpeg" />
+          <img src="images/headshot1.jpeg" />
         </div>
         <div class="nav">
             <label for="img-1" class="prev">&#x2039;</label>
@@ -179,7 +176,7 @@
     <input type="radio" name="radio-btn" id="img-3" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/headshot5.jpeg" />
+          <img src="images/headshot5.jpeg" />
         </div>
         <div class="nav">
             <label for="img-2" class="prev">&#x2039;</label>
@@ -190,7 +187,7 @@
     <input type="radio" name="radio-btn" id="img-4" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/headshotman.jpg" />
+          <img src="images/headshotman.jpg" />
         </div>
         <div class="nav">
             <label for="img-3" class="prev">&#x2039;</label>
@@ -201,7 +198,7 @@
     <input type="radio" name="radio-btn" id="img-5" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/newtutor2.jpg"/>
+          <img src="images/newtutor2.jpg"/>
         </div>
         <div class="nav">
             <label for="img-4" class="prev">&#x2039;</label>
@@ -212,37 +209,40 @@
     <input type="radio" name="radio-btn" id="img-6" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/mandem.jpg"  />
+          <img src="images/mandem.jpg"  />
         </div>
         <div class="nav">
             <label for="img-5" class="prev">&#x2039;</label>
             <label for="img-7" class="next">&#x203a;</label>
         </div>
     </li>
+    
     <input type="radio" name="radio-btn" id="img-7" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/newtutor.jpg"/>
+          <img src="images/newtutor.jpg"/>
         </div>
         <div class="nav">
             <label for="img-6" class="prev">&#x2039;</label>
             <label for="img-8" class="next">&#x203a;</label>
         </div>
     </li>
+    
     <input type="radio" name="radio-btn" id="img-8" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/headshot8.jpg"/>
+          <img src="images/headshot8.jpg"/>
         </div>
         <div class="nav">
             <label for="img-7" class="prev">&#x2039;</label>
             <label for="img-9" class="next">&#x203a;</label>
         </div>
     </li>
+    
     <input type="radio" name="radio-btn" id="img-9" />
     <li class="slide-container">
         <div class="slide">
-          <img src= "images/tutor1.jpg"/>
+          <img src="images/tutor1.jpg"/>
         </div>
         <div class="nav">
             <label for="img-8" class="prev">&#x2039;</label>
