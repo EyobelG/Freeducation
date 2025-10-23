@@ -20,7 +20,7 @@
         .slides {
             padding: 0;
             width: 609px;
-            height: 420px;
+            height: 600px;
             display: block;
             margin: 0 auto;
             position: relative;
@@ -57,21 +57,20 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Changed from default to contain - prevents squeezing */
-            object-position: center; /* Centers the image */
+            object-fit: contain; 
+            object-position: center; 
         }
 
         .tutor-info {
             position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            min-width: 300px;
             z-index: 10;
         }
 
@@ -92,6 +91,32 @@
             font-size: 1em;
             color: #888;
             font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .reach-out-btn {
+            background: linear-gradient(135deg, #552583 0%, #FDB927 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(85, 37, 131, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reach-out-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(85, 37, 131, 0.5);
+            background: linear-gradient(135deg, #FDB927 0%, #552583 100%);
+        }
+
+        .reach-out-btn:active {
+            transform: translateY(0);
         }
 
         .nav label {
@@ -133,7 +158,7 @@
 
         .nav-dots {
             width: 100%;
-            bottom: 9px;
+            bottom: 190px;
             height: 11px;
             display: block;
             position: absolute;
@@ -307,10 +332,11 @@
             { name: "Kevin", age: 28, location: "Seattle, WA" },
             { name: "Tom", age: 67, location: "Miami, FL" },
             { name: "Richard", age: 31, location: "Denver, CO" },
-            { name: "Sheila", age: 27, location: "Boston, MA" },
-            { name: "Tiffany", age: 25, location: "Medford, MA" }
+            { name: "Sheila", age: 27, location: "Chicago, IL" },
+            { name: "Tiffany", age: 25, location: "Portland, OR" }
         ];
 
+        // Get all slides
         const slides = document.querySelectorAll('.slide');
 
         // Add tutor info to each slide
@@ -322,9 +348,14 @@
                 <div class="tutor-name">${tutor.name}</div>
                 <div class="tutor-details">Age: ${tutor.age}</div>
                 <div class="tutor-location">📍 ${tutor.location}</div>
+                <button class="reach-out-btn" onclick="reachOut('${tutor.name}')">Reach Out</button>
             `;
-            slide-container.appendChild(infoDiv);
+            slide.appendChild(infoDiv);
         });
+
+        function reachOut(tutorName) {
+            alert(`You want to reach out to ${tutorName}! This would typically open a contact form or email.`);
+        }
     </script>
 </body>
 </html>
