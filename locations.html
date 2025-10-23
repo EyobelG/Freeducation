@@ -5,40 +5,143 @@
     <title>Locations</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 50px;
+        }
+
+        b {
+            font-weight: 800;
+        }
+
+        #hero {
+            background-image: url("images/locations-banner.jpg");
+            background-size: cover;
+            background-position-x: center;
+            background-position-y: center;
+
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items:flex-end;
+        }
+
+        td {
+            padding: 3px 8px;
+        }
+
+        p {
+            text-align: justify;
+        }
+    </style>
 </head>
 <body>
     <!-- NAVBAR -->
-        <div class="topnav">
-                <a href="index.html" class="logo"><img src = "images/logo_placeholder.png"></a>
-                <a href="">Home</a>
-                <a href="mission.html">Mission</a>
-                <a href="locations.html" class="active">Locations</a>
-                <a href="tutors.html">Tutors</a>
-                <a href="learnmore.html">Sign Up (students)</a>
-                <a href="donate.html">Donate</a>
-                <a href="contact.html">Contact</a>
-        </div>
-        <!-- NAVBAR -->
+    <div class="topnav">
+        <a href="index.html" class="logo"><img src = "images/logo_placeholder.png"></a>
+        <a href="">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="locations.html" class="active">Locations</a>
+        <a href="tutors.html">Tutors</a>
+        <a href="learnmore.html">Sign Up (students)</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <!-- NAVBAR -->
+
+    <div id="hero"></div>
 
     <main>
         <h1>Our Locations</h1>
-        <p>If you'd prefer to meet your tutor in person, we have a variety of
-            locations across the United States.</p>
+        <p style="max-width: 700px;">If you'd prefer to meet your tutor in person, we have a variety of
+            locations across the United States. No appointments are necessary. Just walk in!
+        </p>
+        <table id="locations-list">
+            <tr>
+                <td><b>Atlanta</b></td>
+                <td>1510 Peachtree Lane, Atlanta, GA 30303</td>
+                <td>10 AM - 7 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Boston</b></td>
+                <td>89 Beacon Park, Boston, MA 02108</td>
+                <td>9 AM - 6 PM every day</td>
+            </tr>
+            <tr>
+                <td><b>Chicago</b></td>
+                <td>2309 Ridgeway Blvd, Chicago, IL 60605</td>
+                <td>10 AM - 7 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>556 Willow Lane, Chicago, IL 60611</td>
+                <td>11 AM - 7 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Dallas</b></td>
+                <td>2065 Cottonwood Ave, Dallas, TX 75201</td>
+                <td>10 AM - 7 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Houston</b></td>
+                <td>9027 Baywood Drive, Houston, TX 77002</td>
+                <td>10 AM - 6 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Los Angeles</b></td>
+                <td>4218 Maple Court, Los Angeles, CA 90017</td>
+                <td>9 AM - 6 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1182 Oceanview Ave, Los Angeles, CA 90026</td>
+                <td>10 AM - 8 PM every day</td>
+            </tr>
+            <tr>
+                <td><b>Miami</b></td>
+                <td>228 Biscayne Blvd, Miami, FL 33132</td>
+                <td>10 AM - 8 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>New York</b></td>
+                <td>3077 Small Street, New York, NY 10017</td>
+                <td>10 AM - 8PM on weekdays</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>1769 Godfrey Road, New York, NY 10004</td>
+                <td>10 AM - 8PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Philadelphia</b></td>
+                <td>3340 Chestnut Hill Rd, Philadelphia, PA 19103</td>
+                <td>10 AM - 8 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Phoenix</b></td>
+                <td>1473 Desert Bloom St, Phoenix, AZ 85003</td>
+                <td>9 AM - 5 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>San Diego</b></td>
+                <td>771 Harborview Terrace, San Diego, CA 92101</td>
+                <td>10 AM - 6 PM on weekdays</td>
+            </tr>
+            <tr>
+                <td><b>Seattle</b></td>
+                <td>402 Pinecrest Way, Seattle, WA 98101</td>
+                <td>10 AM - 6 PM on weekdays</td>
+            </tr>
+        </table>
 
-        <section id="map">
-            <h3>Map</h3>
-            <!-- Placeholder for an embedded map or image -->
-            <div class="map-placeholder" role="img" aria-label="Map placeholder">Map will appear here</div>
-        </section>
-
-        <section id="locations-list">
-            <h3>List of Locations</h3>
-            <ul>
-                <li>Location A — Address or brief info</li>
-                <li>Location B — Address or brief info</li>
-                <li>Location C — Address or brief info</li>
-            </ul>
-        </section>
+        <h2>Map</h2>
+        <!-- Placeholder for an embedded map or image -->
+        <div class="map-placeholder" role="img" aria-label="Map placeholder">Map will appear here</div>
     </main>
 
     <div id="footer-container"></div>
