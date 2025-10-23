@@ -20,10 +20,11 @@
         .slides {
             padding: 0;
             width: 609px;
-            height: 600px;
+            height: 420px;
             display: block;
             margin: 0 auto;
             position: relative;
+            margin-bottom: 20px;
         }
 
         .slides * {
@@ -57,21 +58,18 @@
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain; 
-            object-position: center; 
+            object-fit: contain; /* Changed from default to contain - prevents squeezing */
+            object-position: center; /* Centers the image */
         }
 
         .tutor-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            width: 609px;
+            margin: 0 auto;
             background: white;
             padding: 25px 30px;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            z-index: 10;
         }
 
         .tutor-name {
@@ -119,6 +117,15 @@
             transform: translateY(0);
         }
 
+        #tutor-info-display {
+            display: none;
+            margin-top: 30px;
+        }
+
+        #tutor-info-display.show {
+            display: block;
+        }
+
         .nav label {
             width: 200px;
             height: 100%;
@@ -158,7 +165,7 @@
 
         .nav-dots {
             width: 100%;
-            bottom: 190px;
+            bottom: 9px;
             height: 11px;
             display: block;
             position: absolute;
@@ -320,6 +327,15 @@
       <label for="img-9" class="nav-dot" id="img-dot-9"></label>
     </li>
 </ul>
+
+<!-- Tutor Info Display Section (Below Slideshow) -->
+<div id="tutor-info-display" class="tutor-info">
+    <div class="tutor-name" id="display-name">Pratyush</div>
+    <div class="tutor-details" id="display-age">Age: 25</div>
+    <div class="tutor-location" id="display-location">📍 San Francisco, CA</div>
+    <button class="reach-out-btn" onclick="reachOut()">Reach Out</button>
+</div>
+
     <div id="footer-container"></div>
 
     <script>
@@ -332,28 +348,44 @@
             { name: "Kevin", age: 28, location: "Seattle, WA" },
             { name: "Tom", age: 67, location: "Miami, FL" },
             { name: "Richard", age: 31, location: "Denver, CO" },
-            { name: "Sheila", age: 27, location: "Chicago, IL" },
-            { name: "Tiffany", age: 25, location: "Portland, OR" }
+            { name: "Sheila", age: 27, location: "Boston, MA" },
+            { name: "Tiffany", age: 25, location: "Medford, MA" }
         ];
 
-        // Get all slides
-        const slides = document.querySelectorAll('.slide');
+        let currentTutorIndex = 0;
 
-        // Add tutor info to each slide
-        slides.forEach((slide, index) => {
+        // Get all radio buttons
+        const radioButtons = document.querySelectorAll('input[name="radio-btn"]');
+        
+        // Update tutor info display
+        function updateTutorInfo(index) {
             const tutor = tutors[index];
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'tutor-info';
-            infoDiv.innerHTML = `
-                <div class="tutor-name">${tutor.name}</div>
-                <div class="tutor-details">Age: ${tutor.age}</div>
-                <div class="tutor-location">📍 ${tutor.location}</div>
-                <button class="reach-out-btn" onclick="reachOut('${tutor.name}')">Reach Out</button>
-            `;
-            slide.appendChild(infoDiv);
+            const infoDisplay = document.getElementById('tutor-info-display');
+            
+            document.getElementById('display-name').textContent = tutor.name;
+            document.getElementById('display-age').textContent = `Age: ${tutor.age}`;
+            document.getElementById('display-location').textContent = `📍 ${tutor.location}`;
+            
+            // Show the info display
+            infoDisplay.classList.add('show');
+            currentTutorIndex = index;
+        }
+
+        // Listen for slide changes
+        radioButtons.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    updateTutorInfo(index);
+                }
+            });
         });
 
-        function reachOut(tutorName) {
+        // Initialize with first tutor
+        updateTutorInfo(0);
+
+        // Function for Reach Out button
+        function reachOut() {
+            const tutorName = tutors[currentTutorIndex].name;
             alert(`You want to reach out to ${tutorName}! This would typically open a contact form or email.`);
         }
     </script>
