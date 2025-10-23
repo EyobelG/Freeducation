@@ -4,6 +4,67 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" />
         <title>Donate</title>
+
+        <style>
+            #hero {
+                background-image: url("images/donation_banner.jpg");
+                background-size: cover;
+                background-position-x: center;
+                background-position-y: center;
+
+                width: 100%;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                align-items:flex-end;
+            }
+
+            h1 {
+                font-weight: 600;
+            }
+
+            #donation-box-container {
+                padding: 20px;
+            }
+
+            #donation-box {
+                box-sizing: border-box;
+                width: 100%;
+                background-color: rgba(240, 211, 255, 0.8);
+                padding: 60px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 120px;
+            }
+
+            #donation-info {
+                max-width: 400px;
+            }
+
+            @media (max-width: 980px) {
+                #donation-box {
+                    grid-template-columns: 100%;
+                    grid-template-rows: 50% 50%;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 60px 10vw;
+                }
+            }
+
+            h2 {
+                margin: 0px 0px 50px 0px;
+                font-size: 50px;
+                font-weight: 600;
+            }
+
+            label {
+                display: block;
+            }
+        </style>
+
     </head>
     <body>
         <!-- NAVBAR -->
@@ -19,15 +80,83 @@
         <!-- NAVBAR -->
 
         <main>
-            <div id = "donate-title">
-                <h2>Donate</h2>
-            </div>
-            <div id="hero">
-                <p>
-                    Our students depend on your support.
-                    One dollar donated to our program helps facilitate
-                    3 minutes of class for free.
-                </p>
+            <div id="hero"></div>
+            <div id="donation-box-container">
+                <div id="donation-box">
+                    <div id="donation-info">
+                        <h3>
+                            Our students depend on your support.
+                        </h3>
+                        <h2>
+                            You can make a difference now.
+                        </h2>
+                        <p>
+                            Each dollar donated to our program helps facilitate
+                            3 minutes of class for free.
+                        </p>
+                    </div>
+                    <form>
+                        <h1>Donate</h1>
+                        <label for="full-name">
+                            Full name
+                            <input type="text" id="full-name" name="full_name" required>
+                        </label>
+
+                        <label for="email">
+                            Email
+                            <input type="email" id="email" name="email" required>
+                        </label>
+
+                        <label for="amount">
+                            Donation amount (USD)
+                            <input type="number" id="amount" name="amount" min="1" step="0.01" required>
+                        </label>
+
+                        <label for="card-number">
+                            Card number
+                            <input type="text" id="card-number" name="card_number" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" required>
+                        </label>
+
+                        <label for="exp-month">
+                            Expiration
+                            <select id="exp-month" name="exp_month" required>
+                                <option value="" disabled selected>Month</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="exp-year" name="exp_year" required>
+                                <option value="" disabled selected>Year</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                                <option>2027</option>
+                                <option>2028</option>
+                                <option>2029</option>
+                                <option>2030</option>
+                                <option>2031</option>
+                                <option>2032</option>
+                                <option>2033</option>
+                                <option>2034</option>
+                            </select>
+                        </label>
+
+                        <label for="cvv">
+                            CVV
+                            <input type="password" id="cvv" name="cvv" inputmode="numeric" pattern="\d{3,4}" maxlength="4" autocomplete="cc-csc" required>
+                        </label>
+
+                        <button type="submit">Donate</button>
+                    </form>
+                </div>
             </div>
         </main>
     </body>
