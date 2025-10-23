@@ -1,0 +1,16 @@
+{
+    "tutors": [
+        {
+          "name": "Alex Kim",
+          "subject": "Math",
+          "bio": "Passionate about helping students understand algebra and calculus.",
+          "image": "images/alex.jpg"
+        },
+        {
+          "name": "Sofia Rivera",
+          "subject": "Biology",
+          "bio": "Biology major who loves breaking down complex topics.",
+          "image": "images/sofia.jpg"
+        }
+    ]
+}
