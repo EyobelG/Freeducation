@@ -1,0 +1,114 @@
+/* LAKERS PURPLE: #552583 */
+/* LAKERS GOLD: #FDB927 */
+
+/* WHOLE BODY STYLE */
+body {
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+        background-color: #e0bbff;
+        padding-top: 50px;
+        padding-bottom: 50px
+}
+/* WHOLE BODY STYLE */
+
+/* NAVBAR STYLES */
+.topnav {
+        background-color: #552583;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        top: 0;
+        z-index: 10;
+}
+      
+.topnav a {
+        float: left;
+        color: #FDB927;
+        text-align: center;
+        padding: 12px 16px;
+        font-family: "Times New Roman", Times, serif;
+        text-decoration: none;
+        font-size: 22px;
+}
+      
+.topnav a:hover {
+        background-color: #4b187b;
+        color: #FDB927;
+}
+      
+.topnav a.active {
+        background-color: #3e1264;
+        color: #FDB927;
+}
+
+.topnav .logo {
+        float: left;
+        display: flex;
+        align-items: center;
+        padding: 0px; 
+}
+    
+.topnav .logo img {
+        height: 50px; 
+}    
+/* NAVBAR STYLES */
+
+/* HOMEPAGE STYLING BELOW */
+.titleDiv{
+        background-color: lightblue;
+        background-image: url('images/banner2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        padding-top: 200px;
+        padding-bottom: 200px;
+        opacity: 0;  /* Initially invisible */
+        animation: fadeIn 0.5s ease-in forwards;
+        text-align: center;
+        color: rgb(214, 152, 255);
+        font-size: 100px;
+        font-weight: bold;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+}
+
+.titleTextBox{
+        background-color: rgba(240, 211, 255, 0.8);
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 45%;
+}
+
+.flexBox {
+        display: flex;
+        flex-wrap: wrap;       
+        justify-content: center; 
+        gap: 20px;  
+}
+
+@media (max-width: 400px){
+        .titleTextBox{
+                width: 90%;
+        }
+        .titleDiv{
+                font-size: 50px;
+        }
+}
+/* ^^ HOMEPAGE STYLING ABOVE ^^ */
