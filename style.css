@@ -1,10 +1,22 @@
-/* LAKERS PURPLE: #552583 */
-/* LAKERS GOLD: #FDB927 */
+:root {
+        --lakers-purple: #4b187b;
+        --lakers-purple-light: #552583;
+        --lakers-gold: #FDB927;
+}
+
+@font-face {
+        font-family: "noto-sans";
+        src: url("fonts/NotoSans-VariableFont_wdth\,wght.ttf");
+}
+
+* {
+        font-family: "noto-sans", "sans-serif";
+        font-weight: 450;
+}
 
 /* WHOLE BODY STYLE */
 body {
         margin: 0;
-        font-family: "Times New Roman", Times, serif;
         background-color: #e0bbff;
         padding-top: 50px;
         padding-bottom: 50px
@@ -13,7 +25,7 @@ body {
 
 /* NAVBAR STYLES */
 .topnav {
-        background-color: #552583;
+        background-color: var(--lakers-purple-light);
         overflow: hidden;
         position: fixed;
         width: 100%;
@@ -24,22 +36,21 @@ body {
       
 .topnav a {
         float: left;
-        color: #FDB927;
+        color: var(--lakers-gold);
         text-align: center;
         padding: 12px 16px;
-        font-family: "Times New Roman", Times, serif;
         text-decoration: none;
         font-size: 22px;
 }
       
 .topnav a:hover {
-        background-color: #4b187b;
-        color: #FDB927;
+        background-color: var(--lakers-purple);
+        color: var(--lakers-gold);
 }
       
 .topnav a.active {
-        background-color: #3e1264;
-        color: #FDB927;
+        background-color: var(--lakers-purple);
+        color: var(--lakers-gold);
 }
 
 .topnav .logo {
@@ -89,11 +100,16 @@ body {
 .titleTextBox{
         background-color: rgba(240, 211, 255, 0.8);
         margin: 20px;
-        padding: 20px;
+        padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         max-width: 400px;
         width: 45%;
+
+        h2 {
+                font-weight: 500;
+                margin-bottom: 10px;
+        }
 }
 
 .flexBox {
