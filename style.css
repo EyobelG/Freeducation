@@ -143,8 +143,8 @@ body {
         text-align: center;  
         container-type: inherit;
         margin: 20px;
-        padding: 30px;
-        width: 70%;
+        padding: 10px;
+        width: 60%;
 }
 
 @media (max-width: 400px){
