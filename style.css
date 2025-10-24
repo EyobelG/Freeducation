@@ -142,6 +142,9 @@ body {
         justify-content: center;
         text-align: center;  
         container-type: inherit;
+        margin: 20px;
+        padding: 30px;
+        width: 70%;
 }
 
 @media (max-width: 400px){
