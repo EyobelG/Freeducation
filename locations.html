@@ -5,6 +5,11 @@
     <title>Locations</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
         main {
@@ -38,12 +43,85 @@
         p {
             text-align: justify;
         }
+
+        .location-row {
+            transition: background-color 0.2s;
+        }
+
+        .location-row:hover {
+            background-color: #f0f0f0;
+        }
+
+        .map-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .map-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 20px;
+        }
+
+        .close-modal:hover {
+            color: #000;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #all-locations-map {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <!-- NAVBAR -->
     <div class="topnav">
-        <a href="index.html" class="logo"><img src = "images/logo_placeholder.png"></a>
+        <a href="index.html" class="logo"><img src="images/logo_placeholder.png"></a>
         <a href="">Home</a>
         <a href="mission.html">Mission</a>
         <a href="locations.html" class="active">Locations</a>
@@ -62,88 +140,195 @@
             locations across the United States. No appointments are necessary. Just walk in!
         </p>
         <table id="locations-list">
-            <tr>
+            <tr class="location-row" data-address="1510 Peachtree Lane, Atlanta, GA 30303" data-city="Atlanta" data-lat="33.7490" data-lng="-84.3880">
                 <td><b>Atlanta</b></td>
-                <td>1510 Peachtree Lane, Atlanta, GA 30303</td>
+                <td>1510 Peachtree Lane, Atlanta, GA 30303 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 7 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="89 Beacon Park, Boston, MA 02108" data-city="Boston" data-lat="42.3601" data-lng="-71.0589">
                 <td><b>Boston</b></td>
-                <td>89 Beacon Park, Boston, MA 02108</td>
+                <td>89 Beacon Park, Boston, MA 02108 <a class="map-link">📍 View Map</a></td>
                 <td>9 AM - 6 PM every day</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="2309 Ridgeway Blvd, Chicago, IL 60605" data-city="Chicago" data-lat="41.8781" data-lng="-87.6298">
                 <td><b>Chicago</b></td>
-                <td>2309 Ridgeway Blvd, Chicago, IL 60605</td>
+                <td>2309 Ridgeway Blvd, Chicago, IL 60605 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 7 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="556 Willow Lane, Chicago, IL 60611" data-city="Chicago" data-lat="41.8881" data-lng="-87.6298">
                 <td></td>
-                <td>556 Willow Lane, Chicago, IL 60611</td>
+                <td>556 Willow Lane, Chicago, IL 60611 <a class="map-link">📍 View Map</a></td>
                 <td>11 AM - 7 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="2065 Cottonwood Ave, Dallas, TX 75201" data-city="Dallas" data-lat="32.7767" data-lng="-96.7970">
                 <td><b>Dallas</b></td>
-                <td>2065 Cottonwood Ave, Dallas, TX 75201</td>
+                <td>2065 Cottonwood Ave, Dallas, TX 75201 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 7 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="9027 Baywood Drive, Houston, TX 77002" data-city="Houston" data-lat="29.7604" data-lng="-95.3698">
                 <td><b>Houston</b></td>
-                <td>9027 Baywood Drive, Houston, TX 77002</td>
+                <td>9027 Baywood Drive, Houston, TX 77002 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 6 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="4218 Maple Court, Los Angeles, CA 90017" data-city="Los Angeles" data-lat="34.0522" data-lng="-118.2437">
                 <td><b>Los Angeles</b></td>
-                <td>4218 Maple Court, Los Angeles, CA 90017</td>
+                <td>4218 Maple Court, Los Angeles, CA 90017 <a class="map-link">📍 View Map</a></td>
                 <td>9 AM - 6 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="1182 Oceanview Ave, Los Angeles, CA 90026" data-city="Los Angeles" data-lat="34.0722" data-lng="-118.2637">
                 <td></td>
-                <td>1182 Oceanview Ave, Los Angeles, CA 90026</td>
+                <td>1182 Oceanview Ave, Los Angeles, CA 90026 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 8 PM every day</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="228 Biscayne Blvd, Miami, FL 33132" data-city="Miami" data-lat="25.7617" data-lng="-80.1918">
                 <td><b>Miami</b></td>
-                <td>228 Biscayne Blvd, Miami, FL 33132</td>
+                <td>228 Biscayne Blvd, Miami, FL 33132 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 8 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="3077 Small Street, New York, NY 10017" data-city="New York" data-lat="40.7549" data-lng="-73.9712">
                 <td><b>New York</b></td>
-                <td>3077 Small Street, New York, NY 10017</td>
+                <td>3077 Small Street, New York, NY 10017 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 8PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="1769 Godfrey Road, New York, NY 10004" data-city="New York" data-lat="40.7128" data-lng="-74.0060">
                 <td></td>
-                <td>1769 Godfrey Road, New York, NY 10004</td>
+                <td>1769 Godfrey Road, New York, NY 10004 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 8PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="3340 Chestnut Hill Rd, Philadelphia, PA 19103" data-city="Philadelphia" data-lat="39.9526" data-lng="-75.1652">
                 <td><b>Philadelphia</b></td>
-                <td>3340 Chestnut Hill Rd, Philadelphia, PA 19103</td>
+                <td>3340 Chestnut Hill Rd, Philadelphia, PA 19103 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 8 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="1473 Desert Bloom St, Phoenix, AZ 85003" data-city="Phoenix" data-lat="33.4484" data-lng="-112.0740">
                 <td><b>Phoenix</b></td>
-                <td>1473 Desert Bloom St, Phoenix, AZ 85003</td>
+                <td>1473 Desert Bloom St, Phoenix, AZ 85003 <a class="map-link">📍 View Map</a></td>
                 <td>9 AM - 5 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="771 Harborview Terrace, San Diego, CA 92101" data-city="San Diego" data-lat="32.7157" data-lng="-117.1611">
                 <td><b>San Diego</b></td>
-                <td>771 Harborview Terrace, San Diego, CA 92101</td>
+                <td>771 Harborview Terrace, San Diego, CA 92101 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 6 PM on weekdays</td>
             </tr>
-            <tr>
+            <tr class="location-row" data-address="402 Pinecrest Way, Seattle, WA 98101" data-city="Seattle" data-lat="47.6062" data-lng="-122.3321">
                 <td><b>Seattle</b></td>
-                <td>402 Pinecrest Way, Seattle, WA 98101</td>
+                <td>402 Pinecrest Way, Seattle, WA 98101 <a class="map-link">📍 View Map</a></td>
                 <td>10 AM - 6 PM on weekdays</td>
             </tr>
         </table>
 
-        <h2>Map</h2>
-        <!-- Placeholder for an embedded map or image -->
-        <div class="map-placeholder" role="img" aria-label="Map placeholder">Map will appear here</div>
+        <h2>All Locations Map</h2>
+        <div id="all-locations-map"></div>
     </main>
 
+    <!-- Modal for individual location map -->
+    <div id="map-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Location Map</h2>
+            <p id="modal-address"></p>
+            <div id="modal-map" class="map-container"></div>
+            <a id="directions-link" href="#" target="_blank" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: #4285f4; color: white; text-decoration: none; border-radius: 4px;">Get Directions</a>
+        </div>
+    </div>
+
     <div id="footer-container"></div>
+
+    <script>
+        let mainMap;
+        let modalMap;
+        const modal = document.getElementById('map-modal');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Initialize main map with all locations
+        function initMainMap() {
+            // Create map centered on USA
+            mainMap = L.map('all-locations-map').setView([39.8283, -98.5795], 4);
+
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(mainMap);
+
+            // Get all locations from table rows
+            const locationRows = document.querySelectorAll('.location-row');
+            locationRows.forEach(row => {
+                const lat = parseFloat(row.dataset.lat);
+                const lng = parseFloat(row.dataset.lng);
+                const city = row.dataset.city || 'Location';
+                const address = row.dataset.address;
+
+                // Add marker for each location
+                const marker = L.marker([lat, lng]).addTo(mainMap);
+                marker.bindPopup(`<strong>${city}</strong><br>${address}`);
+            });
+        }
+
+        // Show modal with individual location map
+        function showLocationModal(address, cityName, lat, lng) {
+            modal.style.display = 'block';
+            document.getElementById('modal-title').textContent = cityName + ' Location';
+            document.getElementById('modal-address').textContent = address;
+            
+            // Update directions link
+            const directionsLink = document.getElementById('directions-link');
+            directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+
+            // Small delay to ensure modal is visible before creating map
+            setTimeout(() => {
+                // Remove old map if it exists
+                if (modalMap) {
+                    modalMap.remove();
+                }
+
+                // Create new map
+                modalMap = L.map('modal-map').setView([lat, lng], 15);
+
+                // Add OpenStreetMap tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(modalMap);
+
+                // Add marker
+                L.marker([lat, lng]).addTo(modalMap)
+                    .bindPopup(`<strong>${cityName}</strong><br>${address}`)
+                    .openPopup();
+            }, 100);
+        }
+
+        // Setup everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize main map
+            initMainMap();
+
+            // Add click handlers for map links
+            const locationRows = document.querySelectorAll('.location-row');
+            locationRows.forEach(row => {
+                const mapLink = row.querySelector('.map-link');
+                mapLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const address = row.dataset.address;
+                    const city = row.dataset.city || 'Location';
+                    const lat = parseFloat(row.dataset.lat);
+                    const lng = parseFloat(row.dataset.lng);
+                    
+                    showLocationModal(address, city, lat, lng);
+                });
+            });
+
+            // Close modal handlers
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
-</html></div></section>
+</html>
