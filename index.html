@@ -3,10 +3,12 @@
 <head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+        <nav class="topnav" id="myTopnav"></nav>
         <!-- NAVBAR -->
         <div class="topnav">
                 <a href="index.html" class="logo"><img src = "images/logo_placeholder.png"></a>
@@ -17,7 +19,11 @@
                 <a href="learnmore.html">Sign Up (students)</a>
                 <a href="donate.html">Donate</a>                
                 <a href="contact.html">Contact</a>  
+                <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i> 
+                </a>
         </div>
+        </nav>
         <!-- NAVBAR -->
 
         <div class = "titleDiv">
@@ -47,5 +53,11 @@
         <!-- CONTENT -->
 
         <div id="footer-container"></div>
+        <script>
+        function toggleMenu() {
+            var nav = document.getElementById("myTopnav");
+            nav.classList.toggle("responsive");
+        }
+        </script>
 </body>
 </html>
