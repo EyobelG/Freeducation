@@ -68,7 +68,6 @@ body {
   display: flex;
 }
 
-/* Hamburger icon is hidden by default on desktop */
 .topnav .icon {
   display: none;
   text-align: center;
