@@ -86,8 +86,10 @@ body {
 /* HOMEPAGE STYLING BELOW */
 .titleDiv{
         background-color: lightblue;
-        background-image: url('images/banner4.jpg');
+        background-image: url('images/banner5.jpg');
         background-size: cover;
+        background-clip: border-box;
+        background-position: center;
         background-repeat: no-repeat;
         background-position-x: center;
         padding-top: 200px;
