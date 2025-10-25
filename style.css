@@ -245,6 +245,9 @@ body {
 .site-footer p {
     margin: 0 0 10px 0; 
     font-size: 0.9rem;
+    padding: 0 5px;
+    justify-content: center !important; 
+    text-align: center !important;
 }
 
 .site-footer a {
