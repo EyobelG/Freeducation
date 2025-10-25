@@ -14,11 +14,36 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <style>
+        /* Ensure body and html have proper structure */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            position: relative;
+        }
+
+        /* Main content wrapper */
+        #page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
         main {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 50px;
+            padding: 20px 50px 80px 50px; /* Extra bottom padding for footer */
+            width: 100%;
+            box-sizing: border-box;
         }
 
         b {
@@ -35,7 +60,7 @@
             height: 300px;
             display: flex;
             justify-content: center;
-            align-items:flex-end;
+            align-items: flex-end;
         }
 
         td {
@@ -67,16 +92,45 @@
             text-decoration: underline;
         }
 
-        /* Modal styles */
+        /* Map container wrapper - ensures proper spacing */
+        .map-wrapper {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .map-wrapper h2 {
+            margin-bottom: 15px;
+        }
+
+        /* Main locations map - contained properly */
+        #all-locations-map {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Modal styles - higher z-index to appear above everything */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 9999; /* Very high to be above everything */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0,0,0,0.7);
+            overflow-y: auto;
         }
 
         .modal-content {
@@ -88,6 +142,8 @@
             max-width: 800px;
             max-height: 80vh;
             overflow-y: auto;
+            position: relative;
+            z-index: 10000;
         }
 
         .close-modal {
@@ -111,120 +167,130 @@
             overflow: hidden;
         }
 
-        #all-locations-map {
+        /* Footer stays at bottom */
+        #footer-container {
+            margin-top: auto;
+            position: relative;
+            z-index: 100; /* Above maps but below modal */
+            width: 100%;
+        }
+
+        /* Table styling */
+        #locations-list {
+            margin: 20px 0;
             width: 100%;
             max-width: 900px;
-            height: 500px;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 20px;
-            margin-bottom: 60px;
-            padding-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR -->
-    <div class="topnav">
-        <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
-        <a href="">Home</a>
-        <a href="mission.html">Mission</a>
-        <a href="locations.html" class="active">Locations</a>
-        <a href="tutors.html">Tutors</a>
-        <a href="learnmore.html">Sign Up (students)</a>
-        <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
+    <div id="page-wrapper">
+        <!-- NAVBAR -->
+        <div class="topnav">
+            <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
+            <a href="index.html">Home</a>
+            <a href="mission.html">Mission</a>
+            <a class="active">Locations</a>
+            <a href="tutors.html">Tutors</a>
+            <a href="learnmore.html">Sign Up (students)</a>
+            <a href="donate.html">Donate</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <!-- NAVBAR -->
+
+        <div id="hero"></div>
+
+        <main>
+            <h1>Our Locations</h1>
+            <p style="max-width: 700px;">If you'd prefer to meet your tutor in person, we have a variety of
+                locations across the United States. No appointments are necessary. Just walk in!
+            </p>
+            
+            <table id="locations-list">
+                <tr class="location-row" data-address="1510 Peachtree Lane, Atlanta, GA 30303" data-city="Atlanta" data-lat="33.7490" data-lng="-84.3880">
+                    <td><b>Atlanta</b></td>
+                    <td>1510 Peachtree Lane, Atlanta, GA 30303 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 7 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="89 Beacon Park, Boston, MA 02108" data-city="Boston" data-lat="42.3601" data-lng="-71.0589">
+                    <td><b>Boston</b></td>
+                    <td>89 Beacon Park, Boston, MA 02108 <a class="map-link">📍 View Map</a></td>
+                    <td>9 AM - 6 PM every day</td>
+                </tr>
+                <tr class="location-row" data-address="2309 Ridgeway Blvd, Chicago, IL 60605" data-city="Chicago" data-lat="41.8781" data-lng="-87.6298">
+                    <td><b>Chicago</b></td>
+                    <td>2309 Ridgeway Blvd, Chicago, IL 60605 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 7 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="556 Willow Lane, Chicago, IL 60611" data-city="Chicago" data-lat="41.8881" data-lng="-87.6298">
+                    <td></td>
+                    <td>556 Willow Lane, Chicago, IL 60611 <a class="map-link">📍 View Map</a></td>
+                    <td>11 AM - 7 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="2065 Cottonwood Ave, Dallas, TX 75201" data-city="Dallas" data-lat="32.7767" data-lng="-96.7970">
+                    <td><b>Dallas</b></td>
+                    <td>2065 Cottonwood Ave, Dallas, TX 75201 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 7 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="9027 Baywood Drive, Houston, TX 77002" data-city="Houston" data-lat="29.7604" data-lng="-95.3698">
+                    <td><b>Houston</b></td>
+                    <td>9027 Baywood Drive, Houston, TX 77002 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 6 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="4218 Maple Court, Los Angeles, CA 90017" data-city="Los Angeles" data-lat="34.0522" data-lng="-118.2437">
+                    <td><b>Los Angeles</b></td>
+                    <td>4218 Maple Court, Los Angeles, CA 90017 <a class="map-link">📍 View Map</a></td>
+                    <td>9 AM - 6 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="1182 Oceanview Ave, Los Angeles, CA 90026" data-city="Los Angeles" data-lat="34.0722" data-lng="-118.2637">
+                    <td></td>
+                    <td>1182 Oceanview Ave, Los Angeles, CA 90026 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 8 PM every day</td>
+                </tr>
+                <tr class="location-row" data-address="228 Biscayne Blvd, Miami, FL 33132" data-city="Miami" data-lat="25.7617" data-lng="-80.1918">
+                    <td><b>Miami</b></td>
+                    <td>228 Biscayne Blvd, Miami, FL 33132 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 8 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="3077 Small Street, New York, NY 10017" data-city="New York" data-lat="40.7549" data-lng="-73.9712">
+                    <td><b>New York</b></td>
+                    <td>3077 Small Street, New York, NY 10017 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 8PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="1769 Godfrey Road, New York, NY 10004" data-city="New York" data-lat="40.7128" data-lng="-74.0060">
+                    <td></td>
+                    <td>1769 Godfrey Road, New York, NY 10004 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 8PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="3340 Chestnut Hill Rd, Philadelphia, PA 19103" data-city="Philadelphia" data-lat="39.9526" data-lng="-75.1652">
+                    <td><b>Philadelphia</b></td>
+                    <td>3340 Chestnut Hill Rd, Philadelphia, PA 19103 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 8 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="1473 Desert Bloom St, Phoenix, AZ 85003" data-city="Phoenix" data-lat="33.4484" data-lng="-112.0740">
+                    <td><b>Phoenix</b></td>
+                    <td>1473 Desert Bloom St, Phoenix, AZ 85003 <a class="map-link">📍 View Map</a></td>
+                    <td>9 AM - 5 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="771 Harborview Terrace, San Diego, CA 92101" data-city="San Diego" data-lat="32.7157" data-lng="-117.1611">
+                    <td><b>San Diego</b></td>
+                    <td>771 Harborview Terrace, San Diego, CA 92101 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 6 PM on weekdays</td>
+                </tr>
+                <tr class="location-row" data-address="402 Pinecrest Way, Seattle, WA 98101" data-city="Seattle" data-lat="47.6062" data-lng="-122.3321">
+                    <td><b>Seattle</b></td>
+                    <td>402 Pinecrest Way, Seattle, WA 98101 <a class="map-link">📍 View Map</a></td>
+                    <td>10 AM - 6 PM on weekdays</td>
+                </tr>
+            </table>
+
+            <!-- Map in its own contained wrapper -->
+            <div class="map-wrapper">
+                <h2>All Locations Map</h2>
+                <div id="all-locations-map"></div>
+            </div>
+        </main>
     </div>
-    <!-- NAVBAR -->
-
-    <div id="hero"></div>
-
-    <main>
-        <h1>Our Locations</h1>
-        <p style="max-width: 700px;">If you'd prefer to meet your tutor in person, we have a variety of
-            locations across the United States. No appointments are necessary. Just walk in!
-        </p>
-        <table id="locations-list">
-            <tr class="location-row" data-address="1510 Peachtree Lane, Atlanta, GA 30303" data-city="Atlanta" data-lat="33.7490" data-lng="-84.3880">
-                <td><b>Atlanta</b></td>
-                <td>1510 Peachtree Lane, Atlanta, GA 30303 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 7 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="89 Beacon Park, Boston, MA 02108" data-city="Boston" data-lat="42.3601" data-lng="-71.0589">
-                <td><b>Boston</b></td>
-                <td>89 Beacon Park, Boston, MA 02108 <a class="map-link">📍 View Map</a></td>
-                <td>9 AM - 6 PM every day</td>
-            </tr>
-            <tr class="location-row" data-address="2309 Ridgeway Blvd, Chicago, IL 60605" data-city="Chicago" data-lat="41.8781" data-lng="-87.6298">
-                <td><b>Chicago</b></td>
-                <td>2309 Ridgeway Blvd, Chicago, IL 60605 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 7 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="556 Willow Lane, Chicago, IL 60611" data-city="Chicago" data-lat="41.8881" data-lng="-87.6298">
-                <td></td>
-                <td>556 Willow Lane, Chicago, IL 60611 <a class="map-link">📍 View Map</a></td>
-                <td>11 AM - 7 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="2065 Cottonwood Ave, Dallas, TX 75201" data-city="Dallas" data-lat="32.7767" data-lng="-96.7970">
-                <td><b>Dallas</b></td>
-                <td>2065 Cottonwood Ave, Dallas, TX 75201 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 7 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="9027 Baywood Drive, Houston, TX 77002" data-city="Houston" data-lat="29.7604" data-lng="-95.3698">
-                <td><b>Houston</b></td>
-                <td>9027 Baywood Drive, Houston, TX 77002 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 6 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="4218 Maple Court, Los Angeles, CA 90017" data-city="Los Angeles" data-lat="34.0522" data-lng="-118.2437">
-                <td><b>Los Angeles</b></td>
-                <td>4218 Maple Court, Los Angeles, CA 90017 <a class="map-link">📍 View Map</a></td>
-                <td>9 AM - 6 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="1182 Oceanview Ave, Los Angeles, CA 90026" data-city="Los Angeles" data-lat="34.0722" data-lng="-118.2637">
-                <td></td>
-                <td>1182 Oceanview Ave, Los Angeles, CA 90026 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 8 PM every day</td>
-            </tr>
-            <tr class="location-row" data-address="228 Biscayne Blvd, Miami, FL 33132" data-city="Miami" data-lat="25.7617" data-lng="-80.1918">
-                <td><b>Miami</b></td>
-                <td>228 Biscayne Blvd, Miami, FL 33132 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 8 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="3077 Small Street, New York, NY 10017" data-city="New York" data-lat="40.7549" data-lng="-73.9712">
-                <td><b>New York</b></td>
-                <td>3077 Small Street, New York, NY 10017 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 8PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="1769 Godfrey Road, New York, NY 10004" data-city="New York" data-lat="40.7128" data-lng="-74.0060">
-                <td></td>
-                <td>1769 Godfrey Road, New York, NY 10004 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 8PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="3340 Chestnut Hill Rd, Philadelphia, PA 19103" data-city="Philadelphia" data-lat="39.9526" data-lng="-75.1652">
-                <td><b>Philadelphia</b></td>
-                <td>3340 Chestnut Hill Rd, Philadelphia, PA 19103 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 8 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="1473 Desert Bloom St, Phoenix, AZ 85003" data-city="Phoenix" data-lat="33.4484" data-lng="-112.0740">
-                <td><b>Phoenix</b></td>
-                <td>1473 Desert Bloom St, Phoenix, AZ 85003 <a class="map-link">📍 View Map</a></td>
-                <td>9 AM - 5 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="771 Harborview Terrace, San Diego, CA 92101" data-city="San Diego" data-lat="32.7157" data-lng="-117.1611">
-                <td><b>San Diego</b></td>
-                <td>771 Harborview Terrace, San Diego, CA 92101 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 6 PM on weekdays</td>
-            </tr>
-            <tr class="location-row" data-address="402 Pinecrest Way, Seattle, WA 98101" data-city="Seattle" data-lat="47.6062" data-lng="-122.3321">
-                <td><b>Seattle</b></td>
-                <td>402 Pinecrest Way, Seattle, WA 98101 <a class="map-link">📍 View Map</a></td>
-                <td>10 AM - 6 PM on weekdays</td>
-            </tr>
-        </table>
-
-        <h2>All Locations Map</h2>
-        <div id="all-locations-map"></div>
-    </main>
 
     <!-- Modal for individual location map -->
     <div id="map-modal" class="modal">
