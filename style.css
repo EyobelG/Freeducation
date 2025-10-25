@@ -23,7 +23,7 @@ body {
 }
 /* WHOLE BODY STYLE */
 
-/* NAVBAR STYLES */
+/*#region NAVBAR STYLES */
 .topnav {
         background-color: var(--lakers-purple-light);
         overflow: hidden;
@@ -81,9 +81,9 @@ body {
   background-color: var(--lakers-purple);
   color: var(--lakers-gold);
 }
-/* NAVBAR STYLES */
+/*#endregion NAVBAR STYLES */
 
-/* HOMEPAGE STYLING BELOW */
+/*#region HOMEPAGE STYLING BELOW */
 .titleDiv{
         background-color: lightblue;
         background-image: url('images/banner4.jpg');
@@ -158,7 +158,7 @@ body {
         }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
         /* Show the hamburger icon */
         .topnav .icon {
           float: right;
@@ -203,8 +203,7 @@ body {
           height: 40px;
         }
               
-}
-      
+}     
       
 
 
@@ -304,9 +303,9 @@ body {
         padding-bottom: 50px;
         }
 }
-/* ^^ HOMEPAGE STYLING ABOVE ^^ */
+/*#endregion ^^ HOMEPAGE STYLING ABOVE ^^ */
 
-/* FOOTER STYLES
+/*#region FOOTER STYLES
 .site-footer {
         background-color: #552583;  
         color: #FDB927;           
@@ -328,9 +327,9 @@ body {
 .site-footer a:hover {  
         text-decoration: underline;
 } */
-/* FOOTER STYLES */
+/*#endregion FOOTER STYLES */
 
-/* Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
+/*#region Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
 #footer-container {
     margin-top: auto !important;
     position: relative!important;
@@ -344,6 +343,9 @@ body {
 
 /* Site Footer - This is the actual footer content loaded from footer.html */
 .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #552583;  
     color: #FDB927;     
     border-top: 3px solid  #552583;
@@ -374,3 +376,5 @@ body {
 .site-footer a:hover {
     text-decoration: underline;
 }
+
+/*#endregion */

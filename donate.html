@@ -27,20 +27,26 @@
             }
 
             #donation-box-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 padding: 20px;
             }
 
             #donation-box {
                 box-sizing: border-box;
                 width: 100%;
+                max-width: 1100px;
                 background-color: rgba(240, 211, 255, 0.8);
                 padding: 60px;
                 border-radius: 10px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+                align-items: center;
+
                 display: grid;
-                grid-template-columns: auto auto;
-                gap: 120px;
+                grid-template-columns: 55% 45%;
+                gap: 10px;
             }
 
             #donation-info {
@@ -64,8 +70,30 @@
                 color: #38A711;
             }
 
+            form {
+                padding-right: 30px;
+                padding-bottom: 50px;
+            }
+
             label {
                 display: block;
+            }
+
+            input {
+                border: solid 1px var(--lakers-purple);
+                border-radius: 7px;
+                margin-bottom: 4px;
+                width: 100%;
+                height: 20px;
+            }
+
+            input[type="submit"] {
+                height: 30px;
+                width: 150px;
+                color: white;
+                font-weight: 700;
+                background-color: rgb(153, 31, 172);
+                margin-top: 20px;
             }
         </style>
 
@@ -105,27 +133,27 @@
                     <form>
                         <h1>Donate</h1>
                         <label for="full-name">
-                            Full name
+                            Full name<br>
                             <input type="text" id="full-name" name="full_name" required>
                         </label>
 
                         <label for="email">
-                            Email
+                            Email<br>
                             <input type="email" id="email" name="email" required>
                         </label>
 
                         <label for="amount">
-                            Donation amount (USD)
+                            Donation amount (USD)<br>
                             <input type="number" id="amount" name="amount" min="1" step="0.01" required>
                         </label>
 
                         <label for="card-number">
-                            Card number
+                            Card number<br>
                             <input type="text" id="card-number" name="card_number" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" required>
                         </label>
 
-                        <label for="exp-month">
-                            Expiration
+                        <label for="exp-month" style="display: inline-block;">
+                            Expiration<br>
                             <select id="exp-month" name="exp_month" required>
                                 <option value="" disabled selected>Month</option>
                                 <option value="01">01</option>
@@ -156,12 +184,14 @@
                             </select>
                         </label>
 
-                        <label for="cvv">
+                        <label for="cvv" style="display: inline-block;">
                             CVV
                             <input type="password" id="cvv" name="cvv" inputmode="numeric" pattern="\d{3,4}" maxlength="4" autocomplete="cc-csc" required>
                         </label>
 
-                        <button type="submit">Donate</button>
+                        <br>
+
+                        <input type="submit" value="Donate"></input>
                     </form>
                 </div>
             </div>

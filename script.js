@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('footer-container').innerHTML = `
         <footer class="site-footer">
             <p>&copy; 2025 Freeducation. All rights reserved.</p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="contact.html">Contact</a>
+            <div>
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </footer>
     `;
 });
