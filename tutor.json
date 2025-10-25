@@ -1,16 +1,139 @@
 {
-    "tutors": [
-        {
-          "name": "Alex Kim",
-          "subject": "Math",
-          "bio": "Passionate about helping students understand algebra and calculus.",
-          "image": "images/alex.jpg"
-        },
-        {
-          "name": "Sofia Rivera",
-          "subject": "Biology",
-          "bio": "Biology major who loves breaking down complex topics.",
-          "image": "images/sofia.jpg"
-        }
-    ]
+  "tutors": [
+    {
+      "id": 1,
+      "name": "Pratyush Sharma",
+      "age": 25,
+      "subject": "Computer Science & Math",
+      "specialties": ["Python", "Calculus", "Data Structures", "Algorithms"],
+      "education": "BS Computer Science, Stanford University",
+      "experience": "3 years",
+      "bio": "Passionate about making complex programming concepts accessible. Specializes in helping students prepare for coding interviews and master mathematical foundations.",
+      "location": "San Francisco, CA",
+      "image": "images/indian.jpeg",
+      "availability": ["Monday", "Wednesday", "Friday"],
+      "rating": 4.9,
+      "studentsHelped": 127
+    },
+    {
+      "id": 2,
+      "name": "Jihong Chen",
+      "age": 29,
+      "subject": "Mathematics & Physics",
+      "specialties": ["Calculus", "Linear Algebra", "Physics", "SAT Prep"],
+      "education": "MS Mathematics, MIT",
+      "experience": "5 years",
+      "bio": "Dedicated to helping students build strong analytical skills. Expert in standardized test preparation and advanced mathematics.",
+      "location": "New York, NY",
+      "image": "images/headshot1.jpeg",
+      "availability": ["Tuesday", "Thursday", "Saturday"],
+      "rating": 4.8,
+      "studentsHelped": 203
+    },
+    {
+      "id": 3,
+      "name": "Bryce Anderson",
+      "age": 44,
+      "subject": "Biology & Chemistry",
+      "specialties": ["AP Biology", "Organic Chemistry", "Biochemistry", "MCAT Prep"],
+      "education": "PhD Molecular Biology, Johns Hopkins",
+      "experience": "12 years",
+      "bio": "Former research scientist with a passion for teaching. Makes complex biological concepts easy to understand through real-world examples.",
+      "location": "Austin, TX",
+      "image": "images/headshot5.jpeg",
+      "availability": ["Monday", "Tuesday", "Thursday"],
+      "rating": 5.0,
+      "studentsHelped": 315
+    },
+    {
+      "id": 4,
+      "name": "John Martinez",
+      "age": 54,
+      "subject": "English & Writing",
+      "specialties": ["Essay Writing", "Literature Analysis", "SAT Writing", "College Apps"],
+      "education": "MA English Literature, Yale University",
+      "experience": "20 years",
+      "bio": "Experienced educator specializing in essay composition and literary analysis. Helps students find their unique voice in writing.",
+      "location": "Boston, MA",
+      "image": "images/headshotman.jpg",
+      "availability": ["Monday", "Wednesday", "Friday"],
+      "rating": 4.9,
+      "studentsHelped": 456
+    },
+    {
+      "id": 5,
+      "name": "Kevin Thompson",
+      "age": 28,
+      "subject": "Computer Science",
+      "specialties": ["Web Development", "JavaScript", "React", "Full Stack"],
+      "education": "BS Software Engineering, UC Berkeley",
+      "experience": "4 years",
+      "bio": "Full-stack developer passionate about teaching modern web technologies. Focuses on project-based learning and practical applications.",
+      "location": "Seattle, WA",
+      "image": "images/newtutor2.jpg",
+      "availability": ["Tuesday", "Wednesday", "Saturday"],
+      "rating": 4.7,
+      "studentsHelped": 89
+    },
+    {
+      "id": 6,
+      "name": "Tom Harrison",
+      "age": 67,
+      "subject": "History & Social Studies",
+      "specialties": ["US History", "World History", "AP History", "Government"],
+      "education": "PhD History, Harvard University",
+      "experience": "35 years",
+      "bio": "Retired college professor with decades of teaching experience. Brings history to life through engaging storytelling and critical thinking exercises.",
+      "location": "Miami, FL",
+      "image": "images/mandem.jpg",
+      "availability": ["Monday", "Thursday", "Friday"],
+      "rating": 5.0,
+      "studentsHelped": 612
+    },
+    {
+      "id": 7,
+      "name": "Richard Park",
+      "age": 31,
+      "subject": "Chemistry & Physics",
+      "specialties": ["General Chemistry", "AP Chemistry", "Physics", "Lab Skills"],
+      "education": "PhD Chemistry, Caltech",
+      "experience": "6 years",
+      "bio": "Research chemist who loves making science experiments come alive. Specializes in hands-on learning and test preparation.",
+      "location": "Denver, CO",
+      "image": "images/newtutor.jpg",
+      "availability": ["Tuesday", "Thursday", "Sunday"],
+      "rating": 4.8,
+      "studentsHelped": 178
+    },
+    {
+      "id": 8,
+      "name": "Sheila Williams",
+      "age": 27,
+      "subject": "Spanish & French",
+      "specialties": ["Spanish", "French", "ESL", "Conversation Practice"],
+      "education": "BA Foreign Languages, Georgetown University",
+      "experience": "5 years",
+      "bio": "Multilingual educator who lived abroad for 4 years. Creates immersive language learning experiences focused on practical communication.",
+      "location": "Boston, MA",
+      "image": "images/headshot8.jpg",
+      "availability": ["Monday", "Wednesday", "Saturday"],
+      "rating": 4.9,
+      "studentsHelped": 234
+    },
+    {
+      "id": 9,
+      "name": "Tiffany Lee",
+      "age": 25,
+      "subject": "Art & Design",
+      "specialties": ["Digital Art", "Graphic Design", "Portfolio Prep", "Adobe Suite"],
+      "education": "BFA Graphic Design, RISD",
+      "experience": "3 years",
+      "bio": "Professional designer passionate about nurturing creative talent. Helps students build impressive portfolios for college applications.",
+      "location": "Medford, MA",
+      "image": "images/tutor1.jpg",
+      "availability": ["Tuesday", "Friday", "Sunday"],
+      "rating": 4.8,
+      "studentsHelped": 95
+    }
+  ]
 }
