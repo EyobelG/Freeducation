@@ -6,6 +6,34 @@
     <title>Meet our tutors</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+        /* Body and HTML layout fix */
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main content wrapper */
+        .content-wrapper {
+            flex: 1;
+            padding-bottom: 60px;
+        }
+
+        /* Footer positioning */
+        #footer-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            margin-top: auto;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
         .image-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -28,6 +56,7 @@
             margin: 0 auto;
             position: relative;
             margin-bottom: 20px;
+            z-index: 1;
         }
 
         .slides * {
@@ -65,11 +94,13 @@
 
         .tutor-info {
             width: 609px;
-            margin: 0 auto;
+            margin: 0 auto 40px auto;
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         .tutor-header {
@@ -284,16 +315,17 @@
     </style>
 </head>
 <body>
-    <div class="topnav">
-        <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
-        <a href="index.html">Home</a>
-        <a href="mission.html">Mission</a>
-        <a href="locations.html">Locations</a>
-        <a class="active">Tutors</a>
-        <a href="learnmore.html">Sign Up (students)</a>
-        <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>  
-    </div>
+    <div class="content-wrapper">
+        <div class="topnav">
+            <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
+            <a href="index.html">Home</a>
+            <a href="mission.html">Mission</a>
+            <a href="locations.html">Locations</a>
+            <a class="active">Tutors</a>
+            <a href="learnmore.html">Sign Up (students)</a>
+            <a href="donate.html">Donate</a>
+            <a href="contact.html">Contact</a>  
+        </div>
 
     <!-- Preloaded slideshow with existing images -->
     <ul class="slides">
@@ -522,10 +554,11 @@
         function reachOut() {
             const tutor = tutorsData[currentTutorIndex];
             if (tutor) {
-                alert(`To reach out to ${tutor.name}, please email us at freeducation2025@gmail.com  or call 999-999-9999.\n\nSubject: ${tutor.subject}\nAvailable: ${tutor.availability.join(', ')}`);
+                alert(`To reach out to ${tutor.name}, please email us at contact@yourtutorsite.com or call (555) 123-4567.\n\nSubject: ${tutor.subject}\nAvailable: ${tutor.availability.join(', ')}`);
             }
         }
-        
+
+        // Initialize on page load
         loadTutors();
     </script>
 
