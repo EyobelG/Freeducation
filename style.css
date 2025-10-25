@@ -1,25 +1,25 @@
 :root {
-        --lakers-purple: #4b187b;
-        --lakers-purple-light: #552583;
-        --lakers-gold: #FDB927;
+    --lakers-purple: #4b187b;
+    --lakers-purple-light: #552583;
+    --lakers-gold: #FDB927;
 }
 
 @font-face {
-        font-family: "noto-sans";
-        src: url("fonts/NotoSans-VariableFont_wdth\,wght.ttf");
+    font-family: "noto-sans";
+    src: url("fonts/NotoSans-VariableFont_wdth\,wght.ttf");
 }
 
 * {
-        font-family: "noto-sans", "sans-serif";
-        font-weight: 450;
+    font-family: "noto-sans", "sans-serif";
+    font-weight: 450;
 }
 
 /* WHOLE BODY STYLE */
 body {
-        margin: 0;
-        background-color: #e0bbff;
-        padding-top: 50px;
-        /* padding-bottom: 50px */
+    margin: 0;
+    background-color: #e0bbff;
+    padding-top: 50px;
+    /* padding-bottom: 50px */
 }
 /* WHOLE BODY STYLE */
 
@@ -85,129 +85,129 @@ body {
 
 /*#region HOMEPAGE STYLING BELOW */
 .titleDiv{
-        background-color: lightblue;
-        background-image: url('images/banner4.jpg');
-        background-size: cover;
-        background-clip: border-box;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-position-x: center;
-        padding-top: 200px;
-        padding-bottom: 200px;
-        opacity: 0;  /* Initially invisible */
-        animation: fadeIn 0.5s ease-in forwards;
-        text-align: center;
-        color: rgb(214, 152, 255);
-        font-size: 100px;
-        font-weight: bold;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
+    background-color: lightblue;
+    background-image: url('images/banner4.jpg');
+    background-size: cover;
+    background-clip: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    opacity: 0;  /* Initially invisible */
+    animation: fadeIn 0.5s ease-in forwards;
+    text-align: center;
+    color: rgb(214, 152, 255);
+    font-size: 100px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 
+    -1px -1px 0 #000,  
+        1px -1px 0 #000,
+    -1px  1px 0 #000,
+        1px  1px 0 #000;
 }
 
 @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .titleTextBox{
-        background-color: rgba(240, 211, 255, 0.8);
-        margin: 20px;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        width: 45%;
+    background-color: rgba(240, 211, 255, 0.8);
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 45%;
 
-        h2 {
-                font-weight: 500;
-                margin-bottom: 10px;
-        }
+    h2 {
+            font-weight: 500;
+            margin-bottom: 10px;
+    }
 }
 
 .flexBox {
-        display: flex;
-        flex-wrap: wrap;       
-        justify-content: center; 
-        gap: 20px;  
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center; 
+    gap: 20px;  
 }
 #mission {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;  
-        container-type: inherit;
-        margin: 20px;
-        padding: 10px;
-        width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;  
+    container-type: inherit;
+    margin: 20px;
+    padding: 10px;
+    width: 60%;
 }
 
 @media (max-width: 400px){
-        .titleTextBox{
-                width: 90%;
-        }
-        .titleDiv{
-                font-size: 50px;
-        }
+    .titleTextBox{
+        width: 90%;
+    }
+    .titleDiv{
+        font-size: 50px;
+    }
 }
 
 @media screen and (max-width: 950px) {
-        /* Show the hamburger icon */
-        .topnav .icon {
-          float: right;
-          display: block;
-          cursor: pointer;
-        }
-      
-        /* Hide nav links by default */
-        .topnav .nav-links {
-          display: none;
-        }
-      
-        /* When menu is toggled open */
-        .topnav.responsive {
-          height: auto;
-        }
-      
-        .topnav.responsive .nav-links {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-                background-color: var(--lakers-purple-light);
-                position: fixed; /* <— important: keep it attached to the viewport */
-                top: 45px;       /* directly below navbar */
-                left: 0;
-                z-index: 9999;   /* make sure it's on top of everything */
-                padding-bottom: 10px;
-        }
-              
-      
-        .topnav.responsive .nav-links a {
-          float: none;
-          width: 100%;
-          padding: 12px 20px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          text-align: left;
-          background-color: var(--lakers-purple-light);
-        }
-      
-        .topnav .logo img {
-          height: 40px;
-        }
+    /* Show the hamburger icon */
+    .topnav .icon {
+        float: right;
+        display: block;
+        cursor: pointer;
+    }
+    
+    /* Hide nav links by default */
+    .topnav .nav-links {
+        display: none;
+    }
+    
+    /* When menu is toggled open */
+    .topnav.responsive {
+        height: auto;
+    }
+    
+    .topnav.responsive .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: var(--lakers-purple-light);
+        position: fixed; /* <— important: keep it attached to the viewport */
+        top: 45px;       /* directly below navbar */
+        left: 0;
+        z-index: 9999;   /* make sure it's on top of everything */
+        padding-bottom: 10px;
+    }
+            
+    
+    .topnav.responsive .nav-links a {
+        float: none;
+        width: 100%;
+        padding: 12px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+        background-color: var(--lakers-purple-light);
+    }
+    
+    .topnav .logo img {
+        height: 40px;
+    }
               
 }     
-      
+/*#endregion ^^ HOMEPAGE STYLING ABOVE ^^ */      
 
 
-/* MOBILE RESPONSIVE STYLES */
+/*#region MOBILE RESPONSIVE STYLES */
 @media (max-width: 768px) {
         #footer-container {
         padding: 25px 15px 40px 15px;
@@ -303,7 +303,8 @@ body {
         padding-bottom: 50px;
         }
 }
-/*#endregion ^^ HOMEPAGE STYLING ABOVE ^^ */
+/*#endregion MOBILE RESPONSIVE STYLES */
+
 
 /*#region FOOTER STYLES
 .site-footer {
@@ -328,6 +329,7 @@ body {
         text-decoration: underline;
 } */
 /*#endregion FOOTER STYLES */
+
 
 /*#region Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
 #footer-container {
