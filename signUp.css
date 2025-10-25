@@ -83,23 +83,19 @@
     background-color: #3a1260;
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
+ /* Mobile responsive */
+@media (max-width: 768px) {
     .form-div {
-      padding: 1.5rem;
-      font-size: 1rem;
+        padding: 1.5rem;
+        font-size: 1rem;
     }
-  
+
     input {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .submit-button {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
-  }    }
-  
-    .submit-button {
-      font-size: 0.9rem;
-    }
-  }
+}
