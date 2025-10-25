@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #ffff;
+            text-align: center;
+        }
+
+        .role-selection {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .role-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .role-button {
+            background-color: white;
+            border: 2px solid purple;
+            color: purple;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .role-button:hover {
+            background-color: purple;
+            color: white;
+        }
+
+        .role-button.active {
+            background-color: purple;
+            color: white;
+        }
+
+        .form-content {
+            display: none;
+        }
+
+        .form-content.show {
+            display: block;
+        }
+
+        .info-box {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .student-color {
+            background-color: yellow;
+            border-left: 4px solid yellow;
+        }
+
+        .tutor-color {
+            background-color: #e0f0ff;
+            border-left: 4px solid yellow;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .student-title {
+            color: purple;
+            border-bottom: 2px solid purple;
+        }
+
+        .tutor-title {
+            color: purple;
+            border-bottom: 2px solid ;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        .required {
+            color: purple;
+        }
+
+        button[type="submit"] {
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .student-button {
+            background-color: purple;
+        }
+
+        .student-button:hover {
+            background-color: purple;
+        }
+
+        .tutor-button {
+            background-color: purple;
+        }
+
+        .tutor-button:hover {
+            background-color: #5568d3;
+        }
+
+        .checkbox-item {
+            margin-bottom: 8px;
+        }
+
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+
+        .radio-item {
+            margin-bottom: 8px;
+        }
+
+        .radio-item input {
+            margin-right: 8px;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: purple;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome! Let's Get Started</h1>
+        
+        <div class="role-selection">
+            <p><strong>I am signing up as a:</strong></p>
+            <div class="role-buttons">
+                <button class="role-button" onclick="showForm('student')">Student</button>
+                <button class="role-button" onclick="showForm('tutor')">Tutor</button>
+            </div>
+        </div>
+
+        <!-- STUDENT FORM -->
+        <div id="studentForm" class="form-content">
+            <div class="info-box student-color">
+                <p><strong>For Students:</strong></p>
+                <p>✓ Free tutoring<br>
+                ✓ Online and in-person options<br>
+                ✓ Flexible scheduling</p>
+            </div>
+
+            <form>
+                <div class="form-section">
+                    <div class="section-title student-title">Student Information</div>
+                    
+                    <label>First Name <span class="required">*</span></label>
+                    <input type="text" required>
+                    
+                    <label>Last Name <span class="required">*</span></label>
+                    <input type="text" required>
+                    
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" required>
+                    
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input type="tel" required>
+                    
+                    <label>Date of Birth <span class="required">*</span></label>
+                    <input type="date" required>
+                    
+                    <label>Grade Level <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option>Elementary (K-5)</option>
+                        <option>Middle School (6-8)</option>
+                        <option>High School (9-12)</option>
+                        <option>College</option>
+                    </select>
+                    
+                    <label>School Name <span class="required">*</span></label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title student-title">Parent/Guardian Info (if under 18)</div>
+                    
+                    <label>Parent Name</label>
+                    <input type="text">
+                    
+                    <label>Parent Email</label>
+                    <input type="email">
+                    
+                    <label>Parent Phone</label>
+                    <input type="tel">
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title student-title">Tutoring Preferences</div>
+                    
+                    <label>Tutoring Format <span class="required">*</span></label>
+                    <div class="radio-item">
+                        <input type="radio" name="format" required> Online
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="format" required> In-person
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="format" required> Either
+                    </div>
+                    <br>
+                    
+                    <label>Your Region <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option>Region 1 - East LA</option>
+                        <option>Region 2 - South LA</option>
+                        <option>Region 3 - West LA</option>
+                        <option>Region 4 - Long Beach</option>
+                        <option>Region 5 - Hollywood</option>
+                        <option>Online Only</option>
+                    </select>
+                    
+                    <label>Subjects Needed (check all that apply) <span class="required">*</span></label>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Math
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> English
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Science
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> History
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Other
+                    </div>
+                    <br>
+                    
+                    <label>Sessions Per Week <span class="required">*</span></label>
+                    <div class="radio-item">
+                        <input type="radio" name="sessions" required> 1 session
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="sessions" required> 2 sessions
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="sessions" required> 3+ sessions
+                    </div>
+                    <br>
+                    
+                    <label>Preferred Times (check all that apply) <span class="required">*</span></label>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Mornings
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Afternoons
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Evenings
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekends
+                    </div>
+                    <br>
+                    
+                    <label>What are your learning goals?</label>
+                    <textarea placeholder="Example: Improve math grades, prepare for SAT, etc."></textarea>
+                </div>
+
+                <button type="submit" class="student-button">Submit Student Application</button>
+            </form>
+
+            <div class="back-link">
+                <a href="#" onclick="resetForm(); return false;">← Back to role selection</a>
+            </div>
+        </div>
+
+        <!-- TUTOR FORM -->
+        <div id="tutorForm" class="form-content">
+            <div class="info-box tutor-color">
+                <p><strong>For Tutors:</strong></p>
+                <p>You'll need: your availability, two references, and an emergency contact.<br>
+                This takes about 15 minutes to complete.</p>
+            </div>
+
+            <form>
+                <div class="form-section">
+                    <div class="section-title tutor-title">Contact Information</div>
+                    
+                    <label>First Name <span class="required">*</span></label>
+                    <input type="text" required>
+                    
+                    <label>Middle Name/Initial</label>
+                    <input type="text">
+                    
+                    <label>Last Name <span class="required">*</span></label>
+                    <input type="text" required>
+                    
+                    <label>Full Legal Name</label>
+                    <input type="text">
+                    <p style="font-size: 13px; color: #666; margin-top: -10px;">If different from above (needed for background checks)</p>
+                    
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" required>
+                    
+                    <label>Are you a college student? <span class="required">*</span></label>
+                    <div class="radio-item">
+                        <input type="radio" name="college" required> Yes
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="college" required> No
+                    </div>
+                    <br>
+                    
+                    <label>Date of Birth <span class="required">*</span></label>
+                    <input type="date" required>
+                    <p style="font-size: 13px; color: #666; margin-top: -10px;">Must be 18 or over</p>
+                </div>
+
+                <div class="form-section">
+                    <div class="section-title tutor-title">Tutoring Preferences</div>
+                    
+                    <label>Type of Tutoring <span class="required">*</span></label>
+                    <div class="radio-item">
+                        <input type="radio" name="type" required> Online tutoring
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="type" required> In-person tutoring
+                    </div>
+                    <br>
+                    
+                    <label>Tutoring Region <span class="required">*</span></label>
+                    <select required>
+                        <option value="">Please select...</option>
+                        <option>Region 1 - East LA, Boyle Heights, South Pasadena</option>
+                        <option>Region 2 - South LA, Watts, Hawthorne</option>
+                        <option>Region 3 - West LA, Santa Monica, Venice</option>
+                        <option>Region 4 - Long Beach, San Pedro, Carson</option>
+                        <option>Region 5 - Echo Park, Hollywood, Pasadena</option>
+                        <option>Region 7 - San Fernando Valley, Glendale</option>
+                        <option>Region 8 - Ventura and Santa Barbara Counties</option>
+                        <option>Region 9 - North Orange County</option>
+                        <option>Region 10 - South Orange County</option>
+                        <option>Online Only</option>
+                    </select>
+                    
+                    <label>Do you currently live in California? <span class="required">*</span></label>
+                    <div class="radio-item">
+                        <input type="radio" name="california" required> Yes
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="california" required> No
+                    </div>
+                    <br>
+                    
+                    <label>Subjects You Can Tutor (check all that apply) <span class="required">*</span></label>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Math
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> English
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Science
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> History
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Foreign Language
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Other
+                    </div>
+                    <br>
+                    
+                    <label>Your Availability (check all that apply) <span class="required">*</span></label>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Mornings
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Afternoons
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekday Evenings
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox"> Weekends
+                    </div>
+                    <br>
+                    
+                    <label>Why do you want to be a tutor?</label>
+                    <textarea placeholder="Tell us about your motivation and experience..."></textarea>
+                </div>
+
+                <button type="submit" class="tutor-button">Submit Tutor Application</button>
+            </form>
+
+            <div class="back-link">
+                <a href="#" onclick="resetForm(); return false;">← Back to role selection</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm(role) {
+            // Hide both forms
+            document.getElementById('studentForm').classList.remove('show');
+            document.getElementById('tutorForm').classList.remove('show');
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.role-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected form and activate button
+            if (role === 'student') {
+                document.getElementById('studentForm').classList.add('show');
+                buttons[0].classList.add('active');
+            } else if (role === 'tutor') {
+                document.getElementById('tutorForm').classList.add('show');
+                buttons[1].classList.add('active');
+            }
+        }
+
+        function resetForm() {
+            // Hide both forms
+            document.getElementById('studentForm').classList.remove('show');
+            document.getElementById('tutorForm').classList.remove('show');
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.role-button');
+            buttons.forEach(button => button.classList.remove('active'));
+        }
+    </script>
+</body>
+</html>
