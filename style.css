@@ -192,7 +192,7 @@ body {
 }
 /* ^^ HOMEPAGE STYLING ABOVE ^^ */
 
-/* FOOTER STYLES */
+/* FOOTER STYLES
 .site-footer {
         background-color: #552583;  
         color: #FDB927;           
@@ -213,5 +213,47 @@ body {
 
 .site-footer a:hover {  
         text-decoration: underline;
-}
+} */
 /* FOOTER STYLES */
+
+/* Footer Container - This is the parent DIV where content is loaded */
+#footer-container {
+    margin-top: auto;
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    /* No need for text-align: center here, let the inner footer handle it */
+}
+
+/* Site Footer - This is the actual footer content loaded from footer.html */
+.site-footer {
+    /* Layout */
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+    /* Centering */
+    text-align: center; /* This centers the inline content (p and a) */
+    
+    /* Visuals (for importance) */
+    background-color: #552583;  
+    color: #FDB927;   
+    border-top: 3px solid #007bff;
+}
+
+/* Style the paragraph and links inside the footer */
+.site-footer p {
+    margin: 0 0 10px 0; /* Space below copyright text */
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: #FDB927;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0 5px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
