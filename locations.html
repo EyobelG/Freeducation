@@ -165,13 +165,16 @@
             margin-top: 15px;
             border-radius: 8px;
             overflow: hidden;
+
+            position: relative; 
+            z-index: 10; 
         }
 
         /* Footer stays at bottom */
         #footer-container {
             margin-top: auto;
             position: relative;
-            z-index: 100; /* Above maps but below modal */
+            z-index: 1000; 
             width: 100%;
             text-align: center;
         }
