@@ -216,39 +216,35 @@ body {
 } */
 /* FOOTER STYLES */
 
-/* Footer Container - This is the parent DIV where content is loaded */
+/* Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
 #footer-container {
     margin-top: auto;
     position: relative;
     z-index: 1000;
     width: 100%;
-    /* No need for text-align: center here, let the inner footer handle it */
 }
 
 /* Site Footer - This is the actual footer content loaded from footer.html */
 .site-footer {
-    /* Layout */
+    background-color: #552583;  
+    color: #FDB927;     
+    border-top: 3px solid #007bff;
     width: 100%;
     padding: 20px 0;
     box-sizing: border-box;
-
-    /* Centering */
-    text-align: center; /* This centers the inline content (p and a) */
-    
-    /* Visuals (for importance) */
-    background-color: #552583;  
-    color: #FDB927;   
-    border-top: 3px solid #007bff;
+    text-align: center; 
+    font-family: "Times New Roman", Times, serif;
+    position: relative;         
+    bottom: 0;   
 }
 
-/* Style the paragraph and links inside the footer */
 .site-footer p {
-    margin: 0 0 10px 0; /* Space below copyright text */
+    margin: 0 0 10px 0; 
     font-size: 0.9rem;
 }
 
 .site-footer a {
-    color: #FDB927;
+    color: #89b4f8; 
     text-decoration: none;
     font-size: 0.9rem;
     padding: 0 5px;
