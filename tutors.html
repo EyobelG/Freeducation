@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet our tutors</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
     <style>
         /* Body and HTML layout fix */
         html, body {
@@ -21,7 +22,7 @@
         /* Main content wrapper */
         .content-wrapper {
             flex: 1;
-            padding-bottom: 60px;
+            padding-bottom: 60px; /* Space for footer */
         }
 
         /* Footer positioning */
@@ -559,9 +560,15 @@
         }
 
         // Initialize on page load
+                
         loadTutors();
     </script>
+    </div>
 
-    <div id="footer-container"></div>
+<footer class="site-footer">
+    <p>&copy;2025 Freeducation. All rights reserved.</p>
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="contact.html">Contact</a>
+  </footer>
 </body>
 </html>

@@ -86,7 +86,7 @@ body {
 /* HOMEPAGE STYLING BELOW */
 .titleDiv{
         background-color: lightblue;
-        background-image: url('images/banner5.jpg');
+        background-image: url('images/banner4.jpg');
         background-size: cover;
         background-clip: border-box;
         background-position: center;
@@ -218,10 +218,14 @@ body {
 
 /* Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
 #footer-container {
-    margin-top: auto;
-    position: relative;
-    z-index: 1000;
-    width: 100%;
+    margin-top: auto !important;
+    position: relative!important;
+    bottom: 0 !important;
+    left: 0 !important;
+    text-align: center !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    background-color: #552583;  
 }
 
 /* Site Footer - This is the actual footer content loaded from footer.html */
@@ -244,7 +248,7 @@ body {
 }
 
 .site-footer a {
-    color: #89b4f8; 
+    color: #FDB927;
     text-decoration: none;
     font-size: 0.9rem;
     padding: 0 5px;
