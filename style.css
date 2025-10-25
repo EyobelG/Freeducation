@@ -232,7 +232,7 @@ body {
 .site-footer {
     background-color: #552583;  
     color: #FDB927;     
-    border-top: 3px solid #007bff;
+    border-top: 3px solid  #552583;
     width: 100%;
     padding: 20px 0;
     box-sizing: border-box;
