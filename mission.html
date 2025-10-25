@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
           #hero {
             background-image: url("images/banner3.jpg");
@@ -40,8 +40,9 @@
     </style>
 </head>
 <body>
-        <div class="topnav">
-                <a href="index.html" class = "logo"><img src = "images/logo2.svg"></a>
+        <nav class="topnav" id="myTopnav">
+            <a href="index.html" class = "logo"><img src = "images/logo2.svg"></a>
+            <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a class="active">Mission</a>
                 <a href="locations.html">Locations</a>
@@ -49,7 +50,12 @@
                 <a href="learnmore.html">Sign Up (students)</a>
                 <a href="donate.html">Donate</a>
                 <a href="contact.html">Contact</a>
-        </div>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+                </a>
+        </nav>
+        
         <div id="hero"></div>
     <div id = "mission">
         <h2>Our Mission: Unleashing Global Potential</h2>
@@ -61,5 +67,6 @@ We don't just teach; we equip the next generation of innovators, leaders, and pr
 to shape a more equitable and prosperous world.
     </div>
     <div id="footer-container"></div>
+    <script src="script.js"></script>
 </body>
 </html>

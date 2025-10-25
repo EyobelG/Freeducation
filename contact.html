@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             #contact-title {
                 text-align: center;
@@ -15,8 +15,9 @@
     </head>
     <body>
         <!-- NAVBAR -->
-        <nav class="topnav">
+        <nav class="topnav" id="myTopnav">
             <a href="index.html" class="logo"><img src = "images/logo2.svg"></a>
+            <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="mission.html">Mission</a>
             <a href="locations.html">Locations</a>
@@ -24,6 +25,11 @@
             <a href="learnmore.html">Sign Up (students)</a>
             <a href="donate.html">Donate</a>
             <a class="active">Contact</a>
+            </div>
+            
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+                </a>
         </nav>
         <!-- NAVBAR -->
         <div id = "contact-title">
@@ -34,5 +40,6 @@
             <br/>Phone: 999-999-9999</h3>
         </div>
         <div id="footer-container"></div>
+        <script src="script.js"></script>
     </body>
 </html>

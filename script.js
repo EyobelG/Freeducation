@@ -24,3 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </footer>
     `;
 });
+
+function toggleMenu() {
+    var nav = document.getElementById("myTopnav");
+    nav.classList.toggle("responsive");
+}

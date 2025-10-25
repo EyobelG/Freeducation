@@ -159,48 +159,53 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  
-  .topnav .icon {
-    float: right; 
-    display: block; 
-  }
-  
-  .topnav .nav-links {
-    display: none; 
-  }
-
-  .topnav.responsive {
-    position: fixed;
-    height: auto; 
-  }
-
-  .topnav.responsive .nav-links {
-    display: flex; 
-    flex-direction: column; 
-    width: 100%;
-    position: absolute;
-    top: 50px; 
-    left: 0;
-    background-color: var(--lakers-purple-light);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
-  .topnav.responsive .nav-links a {
-    float: none;
-    text-align: left; 
-    width: 100%; 
-  }
-  #footer-container {
-    margin-top: auto !important;
-    position: relative!important;
-    bottom: 0 !important;
-    left: 0 !important;
-    text-align: center !important;
-    z-index: 1000 !important;
-    width: 100% !important;
-    background-color: #552583;  
+        /* Show the hamburger icon */
+        .topnav .icon {
+          float: right;
+          display: block;
+          cursor: pointer;
+        }
+      
+        /* Hide nav links by default */
+        .topnav .nav-links {
+          display: none;
+        }
+      
+        /* When menu is toggled open */
+        .topnav.responsive {
+          height: auto;
+        }
+      
+        .topnav.responsive .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                background-color: var(--lakers-purple-light);
+                position: fixed; /* <— important: keep it attached to the viewport */
+                top: 45px;       /* directly below navbar */
+                left: 0;
+                z-index: 9999;   /* make sure it's on top of everything */
+                padding-bottom: 10px;
+        }
+              
+      
+        .topnav.responsive .nav-links a {
+          float: none;
+          width: 100%;
+          padding: 12px 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: left;
+          background-color: var(--lakers-purple-light);
+        }
+      
+        .topnav .logo img {
+          height: 40px;
+        }
+              
 }
-
-} 
+      
+      
 
 
 /* MOBILE RESPONSIVE STYLES */

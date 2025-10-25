@@ -211,10 +211,10 @@
     </style>
 </head>
 <body>
-    <div id="page-wrapper">
-        <!-- NAVBAR -->
-        <div class="topnav">
-            <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
+    <nav class="topnav" id="myTopnav">
+        <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
+        
+        <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="mission.html">Mission</a>
             <a class="active">Locations</a>
@@ -223,8 +223,12 @@
             <a href="donate.html">Donate</a>
             <a href="contact.html">Contact</a>
         </div>
-        <!-- NAVBAR -->
 
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+            </a>
+    </nav>
+    <div id="page-wrapper">
         <div id="hero"></div>
 
         <main>
