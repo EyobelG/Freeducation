@@ -1,35 +1,22 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Contact</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            #contact-title {
-                text-align: center;
-                margin: 50px;
-            }
-            .contact-link {
-            color: #552583;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-            }
-
-            .contact-link:hover {
-                color: blue;
-                border-bottom: 2px solid blue;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <!-- NAVBAR -->
-        <nav class="topnav" id="myTopnav">
-            <a href="index.html" class="logo"><img src = "images/logo2.svg"></a>
-            <div class="nav-links">
+<head>
+    <title>Contact</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #contact-title {
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav" id="myTopnav">
+        <a href="index.html" class="logo"><img src="images/logo2.svg"></a>
+        <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="mission.html">Mission</a>
             <a href="locations.html">Locations</a>
@@ -37,32 +24,31 @@
             <a href="signup.html">Sign Up</a>
             <a href="donate.html">Donate</a>
             <a class="active">Contact</a>
-            </div>
-            
-            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-                <i class="fa fa-bars"></i>
-                </a>
-        </nav>
-        <!-- NAVBAR -->
-        <div id = "contact-title">
-            <h1>Contact Us</h1>
         </div>
-    
-        <div style="text-align: center; margin: 20px; margin-bottom: 100px;">
-            <h3>Reach out to us:</h3>
-            <p style="font-size: 18px; line-height: 2.5;">
-                <strong>📧 Email:</strong> 
-                <a href="mailto:freeducation2025@gmail.com" class="contact-link">
-                    freeducation2025@gmail.com
-                </a>
-                <br/>
-                <strong>📞 Phone:</strong> 
-                <a href="tel:+15551234567" class="contact-link">
-                    555-123-4567
-                </a>
-            </p>
-        </div>
-        <div id="footer-container"></div>
-        <script src="script.js"></script>
-    </body>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <div id="contact-title">
+        <h1>Contact Us</h1>
+    </div>
+
+    <div style="text-align: center; margin: 20px; margin-bottom: 500px">
+        <h3>
+            Reach out to us at:
+            <br/>
+            <strong>📧 Email:</strong>
+            <a href="mailto:freeducation2025@gmail.com" class="contact-link">
+            freeducation2025@gmail.com
+            </a>
+            <br/>
+            <strong>📞Phone:</strong>
+            <a href ="tel:+15551234567" class = "contact-link">555-123-4567</a>
+        </h3>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
 </html>

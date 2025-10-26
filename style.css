@@ -157,6 +157,18 @@ h1 {
     width: 60%;
 }
 
+.contact-link {
+    color: #552583;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.contact-link:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
 @media (max-width: 400px){
     .titleTextBox{
         width: 90%;
