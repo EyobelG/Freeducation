@@ -184,7 +184,7 @@ h1 {
 /* Stickers pinned to viewport edges */
 .edge-sticker {
   position: fixed;
-  width: 120px;
+  width: 200px;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
