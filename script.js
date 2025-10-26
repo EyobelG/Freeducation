@@ -31,3 +31,21 @@ function toggleMenu() {
     var nav = document.getElementById("myTopnav");
     nav.classList.toggle("responsive");
 }
+
+
+document.addEventListener("scroll", () => {
+  const section = document.querySelector(".wide-range-section");
+  const leftSticker = document.querySelector(".edge-sticker.left");
+  const rightSticker = document.querySelector(".edge-sticker.right");
+
+  const rect = section.getBoundingClientRect();
+  const inView = rect.top < window.innerHeight * 0.75 && rect.bottom > window.innerHeight * 0.25;
+
+  if (inView) {
+    leftSticker.classList.add("visible");
+    rightSticker.classList.add("visible");
+  } else {
+    leftSticker.classList.remove("visible");
+    rightSticker.classList.remove("visible");
+  }
+});

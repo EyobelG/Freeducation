@@ -169,6 +169,51 @@ h1 {
     color: blue;
     border-bottom: 2px solid blue;
 }
+/* Section wrapper to position stickers relative to its scroll position */
+.wide-range-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 20px;
+  text-align: center;
+}
+
+
+/* Stickers pinned to viewport edges */
+.edge-sticker {
+  position: fixed;
+  width: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left and right positions */
+.edge-sticker.left {
+  left: 20px;
+}
+
+.edge-sticker.right {
+  right: 20px;
+}
+
+/* When visible */
+.edge-sticker.visible {
+  opacity: 0.9;
+}
+
+/* Responsive: hide on smaller screens */
+@media (max-width: 800px) {
+  .edge-sticker {
+    display: none;
+  }
+}
+
 @media (max-width: 400px){
     .titleTextBox{
         width: 90%;
