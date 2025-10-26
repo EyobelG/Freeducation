@@ -228,7 +228,7 @@
                 ✓ Flexible scheduling</p>
             </div>
 
-            <form>
+            <form id="studentForm-form">
                 <div class="form-section">
                     <div class="section-title student-title">Student Information</div>
                     
@@ -364,7 +364,7 @@
                 This takes about 15 minutes to complete.</p>
             </div>
 
-            <form>
+            <form id="tutorForm-form">
                 <div class="form-section">
                     <div class="section-title tutor-title">Contact Information</div>
                     
@@ -511,6 +511,15 @@
             // Remove active class from all buttons
             const buttons = document.querySelectorAll('.role-button');
             buttons.forEach(button => button.classList.remove('active'));
+        }
+
+        window.onload = () => {
+            document.getElementById("studentForm-form").onsubmit = () => {
+                alert("Your student application has been submitted. An email should be arriving soon with further instructions.");
+            }
+            document.getElementById("tutorForm-form").onsubmit = () => {
+                alert("Your tutor application has been submitted. An email should be arriving soon with further instructions.");
+            }
         }
     </script>
     <div id="footer-container"></div>

@@ -105,6 +105,14 @@
                 margin-top: 20px;
             }
         </style>
+
+        <script>
+            window.onload = () => {
+                document.getElementById("donate-form").onsubmit = () => {
+                    alert("Thank you for the donation! A receipt will be sent to your email address shortly.");
+                }
+            }
+        </script>
     </head>
     <body>
         <!-- NAVBAR -->
