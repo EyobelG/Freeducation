@@ -88,12 +88,12 @@
         }
 
         .student-title {
-            color: #4b187b;;
+            color: #4b187b;
             border-bottom: 2px solid #4b187b;;
         }
 
         .tutor-title {
-            color: #4b187b;;
+            color: #4b187b;
             border-bottom: 2px solid ;
         }
 
@@ -122,7 +122,7 @@
         }
 
         .required {
-            color: #4b187b;;
+            color: #4b187b;
         }
 
         button[type="submit"] {
@@ -142,15 +142,15 @@
 
 
         .student-button {
-            background-color: #4b187b;;
+            background-color: #4b187b;
         }
 
         .student-button:hover {
-            background-color: #4b187b;;
+            background-color: #4b187b;
         }
 
         .tutor-button {
-            background-color: #4b187b;;
+            background-color: #4b187b;
         }
 
         .tutor-button:hover {
@@ -179,13 +179,31 @@
         }
 
         .back-link a {
-            color: #4b187b;;
+            color: #4b187b;
             text-decoration: none;
         }
 
         .back-link a:hover {
             text-decoration: underline;
         }
+        #signup-footer {
+            width: 100%;
+            background: #552583;
+            text-align: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        /* initial fixed position */
+        #signup-footer.fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        /* after loading, we’ll remove fixed and let it be relative */
+        #signup-footer.relative {
+            position: relative;
+        }
+        
     </style>
 </head>
 <body>
@@ -522,8 +540,23 @@
             }
         }
     </script>
-    <div id="footer-container"></div>
+    <div id = "signup-footer" class = "fixed">
+        <div id="footer-container"></div>
+    </div>
+    
 
     <script src="script.js"></script>
+  
+    <script>
+    const footer = document.getElementById("signup-footer");
+
+    // listen for clicks on any <button>
+    document.addEventListener("click", (event) => {
+        if (event.target.tagName.toLowerCase() === "button") {
+        footer.classList.remove("fixed");
+        footer.classList.add("relative");
+        }
+    });
+    </script>
 </body>
 </html>
