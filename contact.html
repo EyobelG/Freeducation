@@ -10,6 +10,18 @@
                 text-align: center;
                 margin: 50px;
             }
+            .contact-link {
+            color: #552583;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            }
+
+            .contact-link:hover {
+                color: blue;
+                border-bottom: 2px solid blue;
+            }
             
         </style>
     </head>
@@ -35,9 +47,20 @@
         <div id = "contact-title">
             <h1>Contact Us</h1>
         </div>
-        <div style="text-align: center; margin: 20px; margin-bottom: 500px">
-            <h3>Reach out to us at: <br/>Email: freeducation2025@gmail.com
-            <br/>Phone: 999-999-9999</h3>
+    
+        <div style="text-align: center; margin: 20px; margin-bottom: 100px;">
+            <h3>Reach out to us:</h3>
+            <p style="font-size: 18px; line-height: 2.5;">
+                <strong>📧 Email:</strong> 
+                <a href="mailto:freeducation2025@gmail.com" class="contact-link">
+                    freeducation2025@gmail.com
+                </a>
+                <br/>
+                <strong>📞 Phone:</strong> 
+                <a href="tel:+15551234567" class="contact-link">
+                    555-123-4567
+                </a>
+            </p>
         </div>
         <div id="footer-container"></div>
         <script src="script.js"></script>
