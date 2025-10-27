@@ -453,7 +453,7 @@ body {
 .welcome-content {
   text-align: center;
   padding: 50px 20px;
-  background-color: #f9f9f9;
+  background-color: #e0bbff;
 }
 
 .welcome-content h1 {
@@ -804,7 +804,7 @@ body {
 .btn-cta1:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 25px rgba(253, 185, 39, 0.6);
-  color: var(--gold);
+  color: var(--lakers-gold);
   background-color: var(--lakers-purple);  
 }
 
@@ -822,7 +822,8 @@ body {
 
 .btn-cta2:hover {
   background-color: var(--lakers-purple);
-  color: var(--gold);
+  color: var(--lakers-gold);
+  box-shadow: 0 6px 25px rgba(253, 185, 39, 0.6);
   transform: translateY(-3px);
 }
 
