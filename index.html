@@ -75,6 +75,15 @@
       .nav a:hover {
         background-color: var(--purple-dark);
       }
+      /* Hamburger icon - hidden on desktop */
+      .icon {
+        display: none;
+        color: var(--gold);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
+      }
+
 
       /* Hero */
       .hero {
@@ -408,41 +417,42 @@
         color: rgba(253, 185, 39, 0.7);
       }
 
-      /* Mobile */
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 36px;
-        }
-
-        .tag {
-          font-size: 18px;
-        }
-
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .steps-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .step::after {
-          display: none;
-        }
-
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .foot-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .links {
-          display: none;
-        }
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .links {
+        display: none; /* Hide links by default on mobile */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--purple-med);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
+
+      .links.active {
+        display: flex; /* Show when hamburger is clicked */
+      }
+
+      .links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(253, 185, 39, 0.2);
+      }
+
+      .links a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+      }
+
+      .icon {
+        display: block; /* Show hamburger on mobile */
+      }
+    }
     </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <!-- Nav -->
@@ -453,9 +463,13 @@
           <li><a href="#features">Features</a></li>
           <li><a href="#steps">How It Works</a></li>
           <li><a href="#tutors">Find a Tutor</a></li>
-          <li><a href="#signup">Sign Up</a></li>
         </ul>
+         <!-- Hamburger icon - OUTSIDE the links ul -->
+         <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+        </a>
       </div>
+  
     </nav>
 
     <!-- Hero -->
@@ -640,5 +654,13 @@
         </div>
       </div>
     </footer>
+
+
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('active');
+      }
+    </script>
   </body>
 </html>
