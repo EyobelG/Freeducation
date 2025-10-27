@@ -751,6 +751,7 @@ body {
   color: white;
   position: relative;
   overflow: hidden;
+  color: var(--lakers-purple);
 }
 
 .cta-box::before {
@@ -772,7 +773,6 @@ body {
 
 .cta-box p {
   font-size: 22px;
-  color: var(--gold);
   margin-bottom: 40px;
   font-weight: 500;
   position: relative;
@@ -790,10 +790,11 @@ body {
 
 .btn-cta1 {
   padding: 16px 45px;
-  background-color: var(--gold);
-  color: var(--purple-dark);
+  background-color: var(--lakers-gold);
+  color: var(--lakers-purple);
   text-decoration: none;
   border-radius: 50px;
+  border: 2px solid var(--lakers-purple);
   font-weight: bold;
   font-size: 18px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -803,22 +804,25 @@ body {
 .btn-cta1:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 25px rgba(253, 185, 39, 0.6);
+  color: var(--gold);
+  background-color: var(--lakers-purple);  
 }
 
 .btn-cta2 {
   padding: 16px 45px;
-  background-color: transparent;
-  color: white;
+  background-color: var(--lakers-gold);
+  color: var(--lakers-purple);
   text-decoration: none;
   border-radius: 50px;
-  border: 2px solid white;
+  border: 2px solid var(--lakers-purple);
   font-weight: bold;
   font-size: 18px;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-cta2:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--lakers-purple);
+  color: var(--gold);
   transform: translateY(-3px);
 }
 
