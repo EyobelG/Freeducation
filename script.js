@@ -20,8 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <footer class="site-footer">
             <p>&copy; 2025 Freeducation. All rights reserved.</p>
             <div>
-                <a href="privacy.html">Privacy Policy</a> | 
-                <a href="contact.html">Contact</a>
+                <a href="contact.html">Contact Us</a>
             </div>
         </footer>
     `;
