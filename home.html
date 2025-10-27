@@ -1,10 +1,11 @@
 <!-- HOMEPAGE -->
 <html>
 <head>
-        <title>Home</title>
+        <title>Home - Freeducation</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
 </head>
 <body>
         <!-- NAVBAR -->
@@ -30,10 +31,32 @@
         </nav>
         <!-- NAVBAR -->
 
-        <div class = "titleDiv">
-                <img src = "images/logo3.svg" width = 400px>
-        </div>
-        <h1>Find a tutor for a variety of subjects at any level, for free! </h1>
+        <div class="welcome-content">
+                <h1>Welcome to Freeducation</h1>
+                <p>
+                    At Freeducation, we believe that education should be accessible to everyone, regardless of their background or financial situation. 
+                    Our platform connects students with passionate tutors who are eager to share their knowledge and help learners achieve their goals. 
+                    Whether you're looking to improve your skills in math, science, languages, or the arts, we have a tutor for you – and it's all completely free!
+                </p>
+            </div>
+        <!-- SEARCH -->
+        <section class="search">
+                <div class="search-wrap">
+                        <h2>Find Your Perfect Tutor</h2>
+                        <div class="search-bar">
+                                <input type="text" class="search-input" placeholder="Search by subject, tutor name, or skill level...">
+                                <button class="search-btn">Search</button>
+                        </div>
+                        <div class="filters">
+                                <span class="tag">Math</span>
+                                <span class="tag">Science</span>
+                                <span class="tag">English</span>
+                                <span class="tag">Languages</span>
+                                <span class="tag">Arts</span>
+                                <span class="tag">History</span>
+                        </div>
+                </div>
+        </section>
 
         <!-- CONTENT -->
         <div class = "flexBox">
@@ -53,10 +76,7 @@
                 </div>
                 <img src="images/formula.png" alt="Right Sticker" class="edge-sticker right">
                 </section>
-                <!-- <div class = "titleTextBox">
-                        <h2 style = "text-align: center">Wide Range of Subjects</h2>
-                        <h3 style = "text-align: center">From Math and Science to Languages and Arts, we have tutors for almost any subject you wish to learn.</h3>
-                </div> -->
+
                 <div class = "titleTextBox">
                         <h2 style = "text-align: center">Flexible Scheduling</h2>
                         <h3 style = "text-align: center">Choose tutoring sessions that fit your schedule, whether it's weekends, evenings, or weekdays.</h3>
@@ -68,9 +88,176 @@
         </div>
         <!-- CONTENT -->
 
+        <!-- FEATURED TUTORS -->
+        <section class="featured">
+                <div class="head">
+                        <h2>Featured Tutors</h2>
+                        <p>Connect with our top-rated educators</p>
+                </div>
+                <div class="tutors">
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot1.jpeg" alt=""></div>
+                                <div class="t-name">John Smith</div>
+                                <div class="t-subject">Mathematics & Physics</div>
+                                <div class="rating">⭐ 4.9 (120 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot5.jpeg" alt=""></div>
+                                <div class="t-name">Maria Garcia</div>
+                                <div class="t-subject">Spanish & ESL</div>
+                                <div class="rating">⭐ 5.0 (85 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot7.jpeg" alt=""></div>
+                                <div class="t-name">David Chen</div>
+                                <div class="t-subject">Computer Science</div>
+                                <div class="rating">⭐ 4.8 (95 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot8.jpg" alt=""></div>
+                                <div class="t-name">Sarah Johnson</div>
+                                <div class="t-subject">Biology & Chemistry</div>
+                                <div class="rating">⭐ 4.9 (110 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot8.jpg" alt=""></div>
+                                <div class="t-name">Sarah Johnson</div>
+                                <div class="t-subject">Biology & Chemistry</div>
+                                <div class="rating">⭐ 4.9 (110 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                        <div class="t-card">
+                                <div class="avatar"><img src="/images/headshot8.jpg" alt=""></div>
+                                <div class="t-name">Sarah Johnson</div>
+                                <div class="t-subject">Biology & Chemistry</div>
+                                <div class="rating">⭐ 4.9 (110 sessions)</div>
+                                <button class="book-btn">Book Session</button>
+                        </div>
+                </div>
+        </section>
+
+        <!-- STATS -->
+        <section class="stats-show">
+                <div class="head">
+                        <h2>Our Impact</h2>
+                </div>
+                <div class="stats-grid">
+                        <div class="s-box">
+                                <div class="s-num">5,000+</div>
+                                <div class="s-label">Sessions Completed</div>
+                        </div>
+                        <div class="s-box">
+                                <div class="s-num">500+</div>
+                                <div class="s-label">Active Tutors</div>
+                        </div>
+                        <div class="s-box">
+                                <div class="s-num">98%</div>
+                                <div class="s-label">Satisfaction Rate</div>
+                        </div>
+                        <div class="s-box">
+                                <div class="s-num">50+</div>
+                                <div class="s-label">Subjects Covered</div>
+                        </div>
+                </div>
+        </section>
+
+        <!-- SUBJECTS -->
+        <section class="subjects">
+                <div class="head">
+                        <h2>Popular Subjects</h2>
+                        <p>Browse tutors by subject area</p>
+                </div>
+                <div class="subj-grid">
+                        <div class="subj-card">
+                                <div class="subj-icon">📐</div>
+                                <div class="subj-name">Mathematics</div>
+                                <div class="subj-count">120 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">🔬</div>
+                                <div class="subj-name">Physics</div>
+                                <div class="subj-count">95 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">📚</div>
+                                <div class="subj-name">English</div>
+                                <div class="subj-count">80 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">🌍</div>
+                                <div class="subj-name">Languages</div>
+                                <div class="subj-count">65 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">🎨</div>
+                                <div class="subj-name">Arts</div>
+                                <div class="subj-count">45 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">💻</div>
+                                <div class="subj-name">Technology</div>
+                                <div class="subj-count">70 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">🧪</div>
+                                <div class="subj-name">Chemistry</div>
+                                <div class="subj-count">97 tutors available</div>
+                        </div>
+                        <div class="subj-card">
+                                <div class="subj-icon">🫀</div>
+                                <div class="subj-name">Biology</div>
+                                <div class="subj-count">37 tutors available</div>
+                        </div>
+                </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-box">
+                <h2>Ready to Start Learning?</h2>
+                <p>Join thousands of students improving their skills every day</p>
+                <div class="cta-btns">
+                        <a href="signup.html" class="btn-cta1">Sign Up Free</a>
+                        <a href="tutors.html" class="btn-cta2">Browse All Tutors</a>
+                </div>
+        </section>
+
         <div id="footer-container"></div>
         <script src="script.js"></script>
         <script>
+                // Filter tags
+                document.querySelectorAll('.tag').forEach(tag => {
+                        tag.addEventListener('click', function() {
+                                const subject = this.textContent;
+                                window.location.href = `tutors.html?subject=${subject}`;
+                        });
+                });
+
+                // Subject cards
+                document.querySelectorAll('.subj-card').forEach(card => {
+                        card.addEventListener('click', function() {
+                                const subject = this.querySelector('.subj-name').textContent;
+                                window.location.href = `tutors.html?subject=${subject}`;
+                        });
+                });
+
+                // Search
+                document.querySelector('.search-btn').addEventListener('click', function() {
+                        const query = document.querySelector('.search-input').value;
+                        if (query) {
+                                window.location.href = `tutors.html?search=${encodeURIComponent(query)}`;
+                        }
+                });
+
+                // Enter key
+                document.querySelector('.search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                                document.querySelector('.search-btn').click();
+                        }
+                });
         </script>
                 
 </body>
