@@ -167,6 +167,46 @@
             position: relative; 
             z-index: 10; 
         }
+
+
+        /* Tablets (iPad, etc.) */
+        @media screen and (max-width: 768px) {
+            main {
+                padding: 20px 30px 80px 30px;
+            }
+            
+            .map-wrapper {
+                padding: 0 15px;
+            }
+            
+            #all-locations-map {
+                height: 400px;
+            }
+        }
+
+        /* iPhone 16 Pro Max and similar phones */
+        @media screen and (max-width: 430px) {
+            main {
+                padding: 20px 10px 80px 10px;
+            }
+            
+            .map-wrapper {
+                padding: 0 5px;
+            }
+            
+            #all-locations-map {
+                height: 350px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
         #footer-container {
             margin-top: auto !important;
             position: relative!important;
@@ -206,6 +246,7 @@
         .site-footer a:hover {
             text-decoration: underline;
         }
+
 
 
     </style>
