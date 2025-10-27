@@ -75,16 +75,28 @@
       .topnav a:hover {
         background-color: var(--purple-dark);
       }
-      /* Hamburger icon - hidden on desktop */
+      /* Hamburger icon - hidden on desktop
       .icon {
         display: none;
         color: var(--gold);
         font-size: 24px;
         cursor: pointer;
         padding: 10px;
+      } */
+
+      .topnav .hamburger {
+        display: none;
+        text-align: center;
+        padding: 12px 16px;
+        text-decoration: none;
+        font-size: 22px;
+        color: var(--lakers-gold);
       }
 
-
+      .topnav a.hamburger:hover {
+        background-color: var(--lakers-purple);
+        color: var(--lakers-gold);
+      }
       /* Hero */
       .hero {
         background-image: url('images/landing_page.png');
@@ -417,61 +429,112 @@
         color: rgba(253, 185, 39, 0.7);
       }
 
-    /* Mobile styles */
+        
+    @media screen and (max-width: 950px) {
+        /* Show the hamburger icon */
+        .topnav .hamburger {
+            float: right;
+            display: block;
+            cursor: pointer;
+        }
+        
+        /* Hide nav links by default */
+        .topnav .nav-links {
+            display: none;
+        }
+        
+        /* When menu is toggled open */
+        .topnav.responsive {
+            height: auto;
+        }
+        
+        .topnav.responsive .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            background-color: var(--lakers-purple-light);
+            position: fixed; /* <— important: keep it attached to the viewport */
+            top: 45px;       /* directly below navbar */
+            left: 0;
+            z-index: 9999;   /* make sure it's on top of everything */
+            padding-bottom: 10px;
+        }
+                
+        
+        .topnav.responsive .nav-links a {
+            float: none;
+            width: 100%;
+            padding: 12px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+            background-color: var(--lakers-purple-light);
+        }
+        
+        .topnav .logo img {
+            height: 40px;
+        }
+                  
+    } 
     @media (max-width: 768px) {
-      .links {
-        display: none; /* Hide links by default on mobile */
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: var(--purple-med);
-        flex-direction: column;
-        gap: 0;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .links.active {
-        display: flex; /* Show when hamburger is clicked */
-      }
-
-      .links li {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(253, 185, 39, 0.2);
-      }
-
-      .links a {
-        display: block;
-        width: 100%;
-        padding: 15px 20px;
-      }
-
-      .icon {
-        display: block; /* Show hamburger on mobile */
-      }
+    .hamburger {
+      display: block !important; /* Force show on mobile */
+      color: var(--gold);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
     }
+
+    .links {
+      display: none; /* Hide by default */
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: var(--purple-med);
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+
+    .links.active {
+      display: flex !important; /* Show when clicked */
+    }
+
+    .links li {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(253, 185, 39, 0.2);
+    }
+
+    .links a {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+    }
+  }
     </style>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <!-- Nav -->
-    <nav class="topnav" id = myTopnav>
-      <div class="wrap">
-        <div class="logo">Freeducation</div>
-        <ul class="links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#steps">How It Works</a></li>
-          <li><a href="tutors.html">Find a Tutor</a></li>
-        </ul>
-         <!-- Hamburger icon - OUTSIDE the links ul -->
-         <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-                <i class="fa fa-bars"></i>
-        </a>
-      </div>
+    <nav class="topnav" id="myTopnav">
+  <div class="wrap">
+    <div class="logo">Freeducation</div>
   
-    </nav>
+    <ul class="links" id="navLinks">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#steps">How It Works</a></li>
+      <li><a href="tutors.html">Find a Tutor</a></li>
+    </ul>
+    
+    <!-- Hamburger icon -->
+    <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</nav>
 
     <!-- Hero -->
     <section class="hero">
@@ -657,11 +720,13 @@
     </footer>
 
 
-    <script>
-      function toggleMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('active');
-      }
+   <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+      
+      console.log('Menu toggled!');
+    }
     </script>
-  </body>
+</body>
 </html>
