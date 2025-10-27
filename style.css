@@ -63,13 +63,6 @@ h1 {
         color: var(--lakers-gold);
 }
 
-/* .topnav .logo {
-        float: left;
-        display: flex;
-        align-items: center;
-        padding: 0px; 
-} */
-
 .logo {
     font-size: 28px;
     font-weight: bold;
@@ -77,13 +70,9 @@ h1 {
     font-style: italic;
     }
 
-/*     
-.topnav .logo img {
-        height: 50px; 
-} */
-
 .topnav .nav-links {
   display: flex;
+  float: right;
 }
 
 .topnav .icon {
