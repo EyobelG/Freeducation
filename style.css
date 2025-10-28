@@ -199,7 +199,7 @@ h1 {
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* Left and right positions */

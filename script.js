@@ -33,7 +33,7 @@ function toggleMenu() {
 
 
 document.addEventListener("scroll", () => {
-  const section = document.querySelector(".wide-range-section");
+  const section = document.querySelector("#wide-range-section");
   const leftSticker = document.querySelector(".edge-sticker.left");
   const rightSticker = document.querySelector(".edge-sticker.right");
 
