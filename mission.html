@@ -1,91 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mission</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
-        #hero {
-            background-image: url("images/banner3.jpg");
-            background-size: cover;
-            background-position-y: center;
+      /* Hero Section */
+      #hero {
+        background-image: url("images/banner3.jpg");
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
 
-            width: 100%;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items:flex-end;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        #mission {
-            margin-bottom: 60px;
-        }
-        .mission-text {
-            max-width: 700px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 50px;
+      /* Body Styles */
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Mission Section */
+      #mission {
+        margin: 60px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .mission-text {
+        max-width: 700px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #4b187b;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* Footer Section */
+      #footer-container {
+        width: 100%;
+        background-color: #4b187b;
+        color: white;
+        text-align: center;
+        padding: 20px 10px;
+        margin-top: auto;
+        font-size: 14px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
         }
 
-        h2 {
-            max-width: 700px;
-            text-align: center; 
-            display: flex;
-            font-weight: 800;
-            color: #4b187b;
-            padding: 10px 10px;
+        p {
+          font-size: 1rem;
         }
 
-        @media (max-width: 700px) {
-            #hero {
-                height: 200px;
-            }
+        #footer-container {
+          font-size: 12px;
+          padding: 15px 5px;
         }
-        @media (max-width: 400px) {
-            #hero {
-                height: 150px;
-            }
-        }
-
+      }
     </style>
-</head>
-<body>
-        <nav class="topnav" id="myTopnav">
-            <a href="index.html" class = "logo">Freeducation</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a class="active">Mission</a>
-                <a href="locations.html">Locations</a>
-                <a href="tutors.html">Tutors</a>
-                <a href="signup.html">Sign Up</a>
-                <a href="donate.html">Donate</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
-                <i class="fa fa-bars"></i>
-                </a>
-        </nav>
-        
-        <div id="hero"></div>
-    <div id = "mission">
-        <h1>Our Mission: Unleashing Global Potential</h1>
-            We believe that talent is universal, but opportunity is not. Our mission is to
-            dismantle the financial barriers that keep brilliant young minds from realizing 
-            their full potential. We are building a future where every motivated student, 
-            regardless of their family's wealth, has unrestricted access to a world-class education.
-            We don't just teach; we equip the next generation of innovators, leaders, and problem-solvers 
-            to shape a more equitable and prosperous world.
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="topnav" id="myTopnav">
+      <a href="index.html" class="logo">Freeducation</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="mission.html" class="active">Mission</a>
+        <a href="locations.html">Locations</a>
+        <a href="tutors.html">Tutors</a>
+        <a href="signup.html">Sign Up</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="hero"></div>
+
+    <!-- Mission Section -->
+    <div id="mission">
+      <h1>Our Mission: Unleashing Global Potential</h1>
+      <div class="mission-text">
+        <p>
+          At Freeducation, we are committed to breaking down barriers to
+          education and empowering individuals to reach their full potential.
+          Our mission is to provide free, high-quality tutoring and resources to
+          learners worldwide, regardless of their background or circumstances.
+          Together, we can create a brighter future for everyone.
+        </p>
+      </div>
     </div>
-    <div id="footer-container"></div>
+
+    <!-- Footer -->
+    <div id="footer-container">
+      &copy; 2023 Freeducation. All rights reserved.
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
