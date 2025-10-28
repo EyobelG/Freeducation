@@ -313,6 +313,50 @@
         input#img-9:checked ~ .nav-dots label#img-dot-9 {
             background: rgba(0, 0, 0, 0.8);
         }
+           /* Media Queries for Responsiveness */
+           @media (max-width: 768px) {
+            .slides {
+                width: 100%;
+                height: auto;
+            }
+
+            .slide {
+                width: 100%;
+                height: auto;
+            }
+
+            .tutor-info {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .tutor-name {
+                font-size: 1.5em;
+            }
+
+            .tutor-subject {
+                font-size: 1.1em;
+            }
+
+            .reach-out-btn {
+                font-size: 1em;
+                padding: 10px 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            .tutor-name {
+                font-size: 1.2em;
+            }
+
+            .tutor-subject {
+                font-size: 1em;
+            }
+
+            .reach-out-btn {
+                font-size: 0.9em;
+                padding: 8px 20px;
+            }
+        }
     </style>
 </head>
 <body>
