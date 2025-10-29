@@ -22,18 +22,8 @@
         /* Main content wrapper */
         .content-wrapper {
             flex: 1;
-            padding-bottom: 60px; /* Space for footer */
+            padding-bottom: 60px; 
         }
-
-        /* Footer positioning
-        #footer-container {
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            margin-top: auto;
-            text-align: center;
-            background: #f8f9fa;
-        } */
 
         .image-container {
             display: grid;
@@ -378,7 +368,6 @@
                 </a>
         </nav>
 
-    <!-- Preloaded slideshow with existing images -->
     <ul class="slides">
         <input type="radio" name="radio-btn" id="img-1" checked />
         <li class="slide-container">
@@ -492,7 +481,6 @@
         </li>
     </ul>
 
-    <!-- Tutor Info Display - Data from JSON -->
     <div id="tutor-info-display" class="tutor-info">
         <div class="tutor-header">
             <div class="tutor-name" id="display-name">Loading...</div>
@@ -569,7 +557,6 @@
             });
         }
 
-        // Update tutor info display from JSON data
         function updateTutorInfo(index) {
             if (!tutorsData[index]) return;
             
@@ -585,13 +572,11 @@
             document.getElementById('display-education').textContent = tutor.education;
             document.getElementById('display-experience').textContent = tutor.experience;
             
-            // Specialties
             const specialtiesContainer = document.getElementById('display-specialties');
             specialtiesContainer.innerHTML = tutor.specialties
                 .map(spec => `<span class="specialty-tag">${spec}</span>`)
                 .join('');
             
-            // Availability
             const availabilityContainer = document.getElementById('display-availability');
             availabilityContainer.innerHTML = tutor.availability
                 .map(day => `<span class="day-badge">${day}</span>`)
@@ -608,8 +593,6 @@
                 alert(`To reach out to ${tutor.name}, please email us at contact@freeducation.org or call (555) 123-4567.\n\nSubject: ${tutor.subject}\nAvailable: ${tutor.availability.join(', ')}`);
             }
         }
-
-        // Initialize on page load
                 
         loadTutors();
     </script>
