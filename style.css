@@ -20,7 +20,6 @@ body {
   background-color: #e0bbff;
   padding-top: 50px;
   cursor: pointer;
-  /* padding-bottom: 50px */
 }
 
 h1 {
@@ -115,7 +114,7 @@ h1 {
   background-position-x: center;
   padding-top: 200px;
   padding-bottom: 200px;
-  opacity: 0; /* Initially invisible */
+  opacity: 0; 
   animation: fadeIn 0.5s ease-in forwards;
   text-align: center;
   color: rgb(214, 152, 255);
@@ -179,7 +178,6 @@ h1 {
   color: blue;
   border-bottom: 2px solid blue;
 }
-/* Section wrapper to position stickers relative to its scroll position */
 .wide-range-section {
   position: relative;
   display: flex;
@@ -190,7 +188,6 @@ h1 {
   text-align: center;
 }
 
-/* Stickers pinned to viewport edges */
 .edge-sticker {
   position: fixed;
   width: 200px;
@@ -202,7 +199,6 @@ h1 {
   z-index: 3;
 }
 
-/* Left and right positions */
 .edge-sticker.left {
   left: 20px;
 }
@@ -211,12 +207,10 @@ h1 {
   right: 20px;
 }
 
-/* When visible */
 .edge-sticker.visible {
   opacity: 0.9;
 }
 
-/* Responsive: hide on smaller screens */
 @media (max-width: 800px) {
   .edge-sticker {
     display: none;
@@ -233,19 +227,16 @@ h1 {
 }
 
 @media screen and (max-width: 950px) {
-  /* Show the hamburger icon */
   .topnav .icon {
     float: right;
     display: block;
     cursor: pointer;
   }
 
-  /* Hide nav links by default */
   .topnav .nav-links {
     display: none;
   }
 
-  /* When menu is toggled open */
   .topnav.responsive {
     height: auto;
   }
@@ -256,10 +247,10 @@ h1 {
     align-items: center;
     width: 100%;
     background-color: var(--lakers-purple-light);
-    position: fixed; /* <— important: keep it attached to the viewport */
-    top: 45px; /* directly below navbar */
+    position: fixed;
+    top: 45px; 
     left: 0;
-    z-index: 9999; /* make sure it's on top of everything */
+    z-index: 9999; 
   }
 
   .topnav.responsive .nav-links a {
@@ -379,30 +370,6 @@ h1 {
   }
 }
 /*#endregion MOBILE RESPONSIVE STYLES */
-
-/*#region FOOTER STYLES
-.site-footer {
-        background-color: #552583;  
-        color: #FDB927;           
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 30px;
-        font-family: "Times New Roman", Times, serif;
-        width: 100%;
-        position: relative;         
-        bottom: 0;
-}
-      
-.site-footer a {
-        color: #FDB927;
-        text-decoration: none;
-        margin: 0 5px;
-}
-
-.site-footer a:hover {  
-        text-decoration: underline;
-} */
-/*#endregion FOOTER STYLES */
 
 /*#region Footer Container - This DIV holds the dynamically loaded content and keeps it at the bottom */
 #footer-container {

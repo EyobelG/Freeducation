@@ -1,1044 +1,924 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Freeducation provides free online tutoring for students of all ages. Connect with expert tutors in any subject, anytime, anywhere.">
-    <meta name="keywords" content="free tutoring, online tutoring, education, study help, expert tutors, Freeducation">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Freeducation provides free online tutoring for students of all ages. Connect with expert tutors in any subject, anytime, anywhere.">
+  <meta name="keywords" content="free tutoring, online tutoring, education, study help, expert tutors, Freeducation">
+  <title>Freeducation - Free Tutoring for Everyone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Freeducation - Free Tutoring for Everyone</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    :root {
+      --purple-dark: #4b187b;
+      --purple-med: #552583;
+      --purple-light: #e0bbff;
+      --gold: #FDB927;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--purple-light);
+      margin: 0;
+      padding-top: 60px;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topnav {
+      background-color: var(--purple-med);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .topnav .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .links {
+      display: flex;
+      list-style: none;
+      gap: 5px;
+      background-color: var(--purple-med);
+    }
+
+    .topnav a {
+      color: var(--gold);
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      transition: background-color 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .topnav a:hover {
+      background-color: var(--purple-dark);
+    }
+
+    .topnav .hamburger {
+      display: none;
+      text-align: center;
+      padding: 12px 16px;
+      text-decoration: none;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .topnav a.hamburger:hover {
+      background-color: var(--purple-dark);
+      color: var(--gold);
+    }
+
+    .hero {
+      background-image: url('images/landing_page-transformed.png');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(75, 24, 123, 0.85) 0%, rgba(85, 37, 131, 0.75) 100%);
+      z-index: 0;
+    }
+
+    .hero-box {
+      position: relative;
+      z-index: 1;
+      text-align: left;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      text-align: left;
+      font-size: 56px;
+      margin-bottom: 25px;
+      color: white;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .small-text {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+
+    .btns {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .btn-1 {
+      background-color: var(--gold);
+      color: var(--purple-dark);
+      padding: 16px 40px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(253, 185, 39, 0.4);
+    }
+
+    .btn-1:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(253, 185, 39, 0.6);
+    }
+
+    .btn-2 {
+      background-color: transparent;
+      color: white;
+      padding: 16px 40px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      border: 2px solid white;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-2:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .stats {
+      background-color: white;
+      padding: 60px 0;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat {
+      padding: 20px;
+    }
+
+    .num {
+      font-size: 48px;
+      font-weight: bold;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .features {
+      padding: 80px 0;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: var(--purple-dark);
+      font-weight: 700;
+    }
+
+    .sub {
+      text-align: center;
+      font-size: 20px;
+      color: var(--purple-dark);
+      margin-bottom: 60px;
+      opacity: 0.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--purple-med), var(--purple-dark));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: var(--gold);
+    }
+
+    .card h3 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: var(--purple-dark);
+      font-weight: 600;
+    }
+
+    .card p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .steps {
+      background-color: white;
+      padding: 80px 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step::after {
+      content: '→';
+      position: absolute;
+      right: -30px;
+      top: 40px;
+      font-size: 30px;
+      color: var(--purple-light);
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    .step-num {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--gold), #ffcd5a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+      color: var(--purple-dark);
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 15px rgba(253, 185, 39, 0.3);
+    }
+
+    .step h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--purple-dark);
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, var(--purple-med) 0%, var(--purple-dark) 100%);
+      padding: 80px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .quote-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quote {
+      font-size: 28px;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: var(--gold);
+    }
+
+    .author {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .role {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 5px;
+    }
+
+    .cta {
+      background-color: var(--purple-light);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 25px;
+      color: var(--purple-dark);
+      font-weight: 700;
+    }
+
+    .cta p {
+      font-size: 20px;
+      color: var(--purple-dark);
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .foot {
+      background-color: var(--purple-dark);
+      color: var(--gold);
+      padding: 50px 0 30px;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+      margin-bottom: 40px;
+    }
+
+    .foot-col h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .foot-col p,
+    .foot-col a {
+      color: rgba(253, 185, 39, 0.8);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .foot-col a:hover {
+      color: var(--gold);
+    }
+
+    .foot-btm {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(253, 185, 39, 0.2);
+      color: rgba(253, 185, 39, 0.7);
+    }
+
+    @media screen and (max-width: 950px) {
+      .topnav .hamburger {
+        float: right;
+        display: block;
+        cursor: pointer;
       }
 
-      :root {
-        --purple-dark: #4b187b;
-        --purple-med: #552583;
-        --purple-light: #e0bbff;
-        --gold: #FDB927;
+      .topnav .nav-links {
+        display: none;
       }
 
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background-color: var(--purple-light);
-        margin: 0;
-        padding-top: 60px;
+      .topnav.responsive {
+        height: auto;
       }
 
-      .wrap {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      /* Nav */
-      .topnav {
+      .topnav.responsive .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
         background-color: var(--purple-med);
         position: fixed;
+        top: 45px;
+        left: 0;
+        z-index: 9999;
+        padding-bottom: 10px;
+      }
+
+      .topnav.responsive .nav-links a {
+        float: none;
         width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
-
-      .topnav .wrap {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        height: 60px;
-      }
-
-      .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: var(--gold);
-        font-style: italic;
-      }
-
-      .links {
-        display: flex;
-        list-style: none;
-        gap: 5px;
+        padding: 12px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
         background-color: var(--purple-med);
       }
 
-      .topnav a {
-        color: var(--gold);
-        text-decoration: none;
-        padding: 10px 20px;
-        font-size: 17px;
-        transition: background-color 0.3s ease;
-        border-radius: 4px;
+      .topnav .logo img {
+        height: 40px;
       }
+    }
 
-      .topnav a:hover {
-        background-color: var(--purple-dark);
-      }
-      /* Hamburger icon - hidden on desktop
-      .icon {
-        display: none;
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block !important;
         color: var(--gold);
         font-size: 24px;
         cursor: pointer;
         padding: 10px;
-      } */
+      }
 
-      .topnav .hamburger {
+      .links {
         display: none;
-        text-align: center;
-        padding: 12px 16px;
-        text-decoration: none;
-        font-size: 22px;
-        color: var(--lakers-gold);
-      }
-
-      .topnav a.hamburger:hover {
-        background-color: var(--lakers-purple);
-        color: var(--lakers-gold);
-      }
-      /* Hero */
-      .hero {
-        background-image: url('images/landing_page-transformed.png');
-        background-size: cover;
-        background-position: center;
-        padding: 100px 0 120px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
+        position: fixed;
+        top: 60px;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(75, 24, 123, 0.85) 0%, rgba(85, 37, 131, 0.75) 100%);
-        z-index: 0;
+        width: 100%;
+        background-color: var(--purple-med);
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
       }
 
-      .hero-box {
-        position: relative;
-        z-index: 1;
-        text-align: left;
-        max-width: 700px;
+      .links.active {
+        display: flex !important;
+      }
+
+      .links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(253, 185, 39, 0.2);
+        margin: 0;
+        padding: 0;
+      }
+
+      .links a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        color: var(--gold);
+        background-color: var(--purple-med);
+      }
+
+      .links a:hover {
+        background-color: var(--purple-dark);
+      }
+
+      .hero {
+        padding: 60px 0 80px;
       }
 
       .hero h1 {
-        text-align: left;
-        font-size: 56px;
-        margin-bottom: 25px;
-        color: white;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-size: 32px;
+        margin-bottom: 20px;
       }
 
       .small-text {
-        font-size: 24px;
-        color: var(--gold);
-        margin-bottom: 40px;
-        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 30px;
       }
 
       .btns {
-        display: flex;
-        gap: 20px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 15px;
       }
 
-      .btn-1 {
-        background-color: var(--gold);
-        color: var(--purple-dark);
-        padding: 16px 40px;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 50px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 15px rgba(253, 185, 39, 0.4);
-      }
-
-      .btn-1:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(253, 185, 39, 0.6);
-      }
-
+      .btn-1,
       .btn-2 {
-        background-color: transparent;
-        color: white;
-        padding: 16px 40px;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 50px;
-        border: 2px solid white;
-        transition: background-color 0.3s ease;
+        width: 100%;
+        text-align: center;
+        padding: 14px 30px;
+        font-size: 16px;
       }
 
-      .btn-2:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-
-      /* Stats */
       .stats {
-        background-color: white;
-        padding: 60px 0;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px 0;
       }
 
       .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-        text-align: center;
-      }
-
-      .stat {
-        padding: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .num {
-        font-size: 48px;
-        font-weight: bold;
-        color: var(--purple-dark);
-        margin-bottom: 10px;
+        font-size: 36px;
       }
 
       .label {
-        font-size: 18px;
-        color: #666;
+        font-size: 16px;
       }
 
-      /* Features */
       .features {
-        padding: 80px 0;
+        padding: 60px 0;
       }
 
       .title {
-        text-align: center;
-        font-size: 42px;
-        margin-bottom: 20px;
-        color: var(--purple-dark);
-        font-weight: 700;
+        font-size: 32px;
+        margin-bottom: 15px;
       }
 
       .sub {
-        text-align: center;
-        font-size: 20px;
-        color: var(--purple-dark);
-        margin-bottom: 60px;
-        opacity: 0.8;
+        font-size: 18px;
+        margin-bottom: 40px;
       }
 
       .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+        grid-template-columns: 1fr;
+        gap: 25px;
       }
 
       .card {
-        background-color: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      .icon {
-        width: 70px;
-        height: 70px;
-        background: linear-gradient(135deg, var(--purple-med), var(--purple-dark));
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 32px;
-        margin-bottom: 25px;
-        color: var(--gold);
+        padding: 30px;
       }
 
       .card h3 {
-        font-size: 26px;
-        margin-bottom: 15px;
-        color: var(--purple-dark);
-        font-weight: 600;
+        font-size: 22px;
       }
 
       .card p {
-        color: #555;
-        line-height: 1.8;
-        font-size: 17px;
+        font-size: 16px;
       }
 
-      /* Steps */
+      .icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+      }
+
       .steps {
-        background-color: white;
-        padding: 80px 0;
+        padding: 60px 0;
       }
 
       .steps-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr;
         gap: 30px;
-        margin-top: 60px;
-      }
-
-      .step {
-        text-align: center;
-        position: relative;
+        margin-top: 40px;
       }
 
       .step::after {
-        content: '→';
-        position: absolute;
-        right: -30px;
-        top: 40px;
-        font-size: 30px;
-        color: var(--purple-light);
-      }
-
-      .step:last-child::after {
         display: none;
       }
 
       .step-num {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, var(--gold), #ffcd5a);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 32px;
-        font-weight: bold;
-        color: var(--purple-dark);
-        margin: 0 auto 20px;
-        box-shadow: 0 4px 15px rgba(253, 185, 39, 0.3);
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
       }
 
       .step h3 {
-        font-size: 20px;
-        margin-bottom: 12px;
-        color: var(--purple-dark);
-        font-weight: 600;
+        font-size: 18px;
       }
 
       .step p {
-        color: #666;
-        line-height: 1.6;
-        font-size: 16px;
+        font-size: 15px;
       }
 
-      /* Quote */
       .quote-box {
-        background: linear-gradient(135deg, var(--purple-med) 0%, var(--purple-dark) 100%);
-        padding: 80px 0;
-        color: white;
-        text-align: center;
-      }
-
-      .quote-wrap {
-        max-width: 900px;
-        margin: 0 auto;
+        padding: 60px 0;
       }
 
       .quote {
-        font-size: 28px;
-        font-style: italic;
-        line-height: 1.8;
-        margin-bottom: 30px;
-        color: var(--gold);
+        font-size: 20px;
+        margin-bottom: 20px;
       }
 
       .author {
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
+        font-size: 16px;
       }
 
       .role {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.8);
-        margin-top: 5px;
+        font-size: 14px;
       }
 
-      /* CTA */
       .cta {
-        background-color: var(--purple-light);
-        padding: 100px 0;
-        text-align: center;
+        padding: 60px 0;
       }
 
       .cta h2 {
-        font-size: 42px;
-        margin-bottom: 25px;
-        color: var(--purple-dark);
-        font-weight: 700;
+        font-size: 28px;
+        margin-bottom: 20px;
       }
 
       .cta p {
-        font-size: 20px;
-        color: var(--purple-dark);
-        margin-bottom: 40px;
-        opacity: 0.9;
+        font-size: 18px;
+        margin-bottom: 30px;
       }
 
-      /* Footer */
       .foot {
-        background-color: var(--purple-dark);
-        color: var(--gold);
-        padding: 50px 0 30px;
+        padding: 40px 0 20px;
       }
 
       .foot-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
-        margin-bottom: 40px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
       }
 
       .foot-col h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
-        color: var(--gold);
+        font-size: 18px;
       }
 
       .foot-col p,
       .foot-col a {
-        color: rgba(253, 185, 39, 0.8);
-        text-decoration: none;
-        display: block;
-        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      body {
+        padding-top: 60px;
+      }
+
+      .wrap {
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .small-text {
+        font-size: 16px;
+      }
+
+      .btn-1,
+      .btn-2 {
+        padding: 12px 25px;
         font-size: 15px;
       }
 
-      .foot-col a:hover {
-        color: var(--gold);
+      .title {
+        font-size: 28px;
       }
 
-      .foot-btm {
-        text-align: center;
-        padding-top: 30px;
-        border-top: 1px solid rgba(253, 185, 39, 0.2);
-        color: rgba(253, 185, 39, 0.7);
+      .sub {
+        font-size: 16px;
       }
 
-        
-    @media screen and (max-width: 950px) {
-        /* Show the hamburger icon */
-        .topnav .hamburger {
-            float: right;
-            display: block;
-            cursor: pointer;
-        }
-        
-        /* Hide nav links by default */
-        .topnav .nav-links {
-            display: none;
-        }
-        
-        /* When menu is toggled open */
-        .topnav.responsive {
-            height: auto;
-        }
-        
-        .topnav.responsive .nav-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            background-color: var(--purple-med);
-            position: fixed; /* <— important: keep it attached to the viewport */
-            top: 45px;       /* directly below navbar */
-            left: 0;
-            z-index: 9999;   /* make sure it's on top of everything */
-            padding-bottom: 10px;
-        }
-                
-        
-        .topnav.responsive .nav-links a {
-            float: none;
-            width: 100%;
-            padding: 12px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: left;
-            background-color: var(--lakers-purple-light);
-        }
-        
-        .topnav .logo img {
-            height: 40px;
-        }
-                  
-    } 
-    @media (max-width: 768px) {
-    .hamburger {
-      display: block !important; /* Force show on mobile */
-      color: var(--gold);
-      font-size: 24px;
-      cursor: pointer;
-      padding: 10px;
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .num {
+        font-size: 32px;
+      }
+
+      .card {
+        padding: 25px;
+      }
+
+      .card h3 {
+        font-size: 20px;
+      }
+
+      .cta h2 {
+        font-size: 24px;
+      }
+
+      .quote {
+        font-size: 18px;
+      }
+
+      .wrap {
+        padding: 0 10px;
+      }
     }
 
-    .links {
-      display: none; /* Hide by default */
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: var(--purple-med);
-      flex-direction: column;
-      gap: 0;
-      margin: 0;
-      padding:0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      z-index: 999;
+    @media (max-width: 430px) {
+      .hero {
+        padding: 50px 0 70px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+        line-height: 1.3;
+      }
+
+      .stats {
+        padding: 35px 0;
+      }
+
+      .features,
+      .steps,
+      .quote-box,
+      .cta {
+        padding: 50px 0;
+      }
     }
-
-    .links.active {
-      display: flex !important; /* Show when clicked */
-      top:50px;
-    }
-
-    .links li {
-      width: 100%;
-      text-align: center;
-      border-bottom: 1px solid rgba(253, 185, 39, 0.2);
-      margin:0;
-      padding:0;
-      gap:inherit;
-    }
-
-    .links a {
-      display: block;
-      width: 100%;
-      padding: 15px 20px;
-      color: var(--gold);
-      background-color: var(--purple-med);
-    }
-    .links a:hover {
-    background-color: var(--purple-dark); /* Darker purple on hover */
-    }
-
-  }
-  /* Add these mobile responsive styles to your existing CSS */
-
-  /* Mobile styles - Tablet and below */
-  @media (max-width: 768px) {
-    /* Hero section */
-  .hero {
-    padding: 60px 0 80px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-
-  .small-text {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-
-  .btns {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .btn-1, .btn-2 {
-    width: 100%;
-    text-align: center;
-    padding: 14px 30px;
-    font-size: 16px;
-  }
-
-  /* Stats section */
-  .stats {
-    padding: 40px 0;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .num {
-    font-size: 36px;
-  }
-
-  .label {
-    font-size: 16px;
-  }
-
-  /* Features section */
-  .features {
-    padding: 60px 0;
-  }
-
-  .title {
-    font-size: 32px;
-    margin-bottom: 15px;
-  }
-
-  .sub {
-    font-size: 18px;
-    margin-bottom: 40px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .card {
-    padding: 30px;
-  }
-
-  .card h3 {
-    font-size: 22px;
-  }
-
-  .card p {
-    font-size: 16px;
-  }
-
-  .icon {
-    width: 60px;
-    height: 60px;
-    font-size: 28px;
-  }
-
-  /* Steps section */
-  .steps {
-    padding: 60px 0;
-  }
-
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-top: 40px;
-  }
-
-  .step::after {
-    display: none;
-  }
-
-  .step-num {
-    width: 70px;
-    height: 70px;
-    font-size: 28px;
-  }
-
-  .step h3 {
-    font-size: 18px;
-  }
-
-  .step p {
-    font-size: 15px;
-  }
-
-  /* Quote section */
-  .quote-box {
-    padding: 60px 0;
-  }
-
-  .quote {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .author {
-    font-size: 16px;
-  }
-
-  .role {
-    font-size: 14px;
-  }
-
-  /* CTA section */
-  .cta {
-    padding: 60px 0;
-  }
-
-  .cta h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-
-  .cta p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-
-  /* Footer */
-  .foot {
-    padding: 40px 0 20px;
-  }
-
-  .foot-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-  }
-
-  .foot-col h3 {
-    font-size: 18px;
-  }
-
-  .foot-col p,
-  .foot-col a {
-    font-size: 14px;
-  }
-
-  /* Adjust body padding */
-  body {
-    padding-top: 60px;
-  }
-
-  .wrap {
-    padding: 0 15px;
-  }
-  .hamburger {
-  display: block !important;
-  color: var(--gold);
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-  .links {
-    display: none;
-    position: fixed;
-    top: 60px; /* Directly below navbar - no gap */
-    left: 0;
-    width: 100%;
-    background-color: var(--purple-med); /* Purple background, not white */
-    flex-direction: column;
-    gap: 0;
-    margin: 0; /* Remove any margin */
-    padding: 0; /* Remove any padding */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-  }
-
-  .links.active {
-    display: flex !important;
-  }
-
-  .links li {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid rgba(253, 185, 39, 0.2);
-    margin: 0; /* Remove any margin */
-    padding: 0; /* Remove any padding */
-  }
-
-  .links a {
-    display: block;
-    width: 100%;
-    padding: 15px 20px;
-    color: var(--gold); /* Make sure text is gold */
-    background-color: var(--purple-med); /* Purple background */
-  }
-
-  .links a:hover {
-    background-color: var(--purple-dark); /* Darker purple on hover */
-  }
-
-
-
-  }
-
-
-  /* Extra small mobile phones */
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 28px;
-    }
-
-    .small-text {
-      font-size: 16px;
-    }
-
-    .btn-1, .btn-2 {
-      padding: 12px 25px;
-      font-size: 15px;
-    }
-
-    .title {
-      font-size: 28px;
-    }
-
-    .sub {
-      font-size: 16px;
-    }
-
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
-
-    .num {
-      font-size: 32px;
-    }
-
-    .card {
-      padding: 25px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-    }
-
-    .cta h2 {
-      font-size: 24px;
-    }
-
-    .quote {
-      font-size: 18px;
-    }
-
-    .wrap {
-      padding: 0 10px;
-    }
-  }
-
-  /* iPhone 16 Pro Max and similar (430px) */
-  @media (max-width: 430px) {
-    .hero {
-      padding: 50px 0 70px;
-    }
-
-    .hero h1 {
-      font-size: 26px;
-      line-height: 1.3;
-    }
-
-    .stats {
-      padding: 35px 0;
-    }
-
-    .features, .steps, .quote-box, .cta {
-      padding: 50px 0;
-    }
-  }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <nav class="topnav" id="myTopnav">
-  <div class="wrap">
-    <div class = "logo">
-      <a href="home.html" class="logo">Freeducation</a>
+  </style>
+</head>
+<body>
+  <nav class="topnav" id="myTopnav">
+    <div class="wrap">
+      <div class="logo">
+        <a href="home.html" class="logo">Freeducation</a>
+      </div>
+
+      <ul class="links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#steps">How It Works</a></li>
+        <li><a href="#signup">Get Started</a></li>
+      </ul>
+
+      <a class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
-    
-  
-    <ul class="links" id="navLinks">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#steps">How It Works</a></li>
-      <li><a href="#signup">Get Started</a></li>
-    </ul>
-    
-    <!-- Hamburger icon -->
-    <a class="hamburger" onclick="toggleMenu()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</nav>
+  </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-box">
-          <h1>Learn Anything, Completely Free</h1>
-          <p class="small-text">Connect with expert tutors for any subject, at any level</p>
-          <div class="btns">
-            <a href="tutors.html" class="btn-1">Find a Tutor</a>
-            <a href="signup.html" class="btn-2">Become a Tutor</a>
-          </div>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-box">
+        <h1>Learn Anything, Completely Free</h1>
+        <p class="small-text">Connect with expert tutors for any subject, at any level</p>
+        <div class="btns">
+          <a href="tutors.html" class="btn-1">Find a Tutor</a>
+          <a href="signup.html" class="btn-2">Become a Tutor</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Stats -->
-    <section class="stats">
-      <div class="wrap">
-        <div class="stats-grid">
-          <div class="stat">
-            <div class="num">100%</div>
-            <div class="label">Free Forever</div>
-          </div>
-          <div class="stat">
-            <div class="num">500+</div>
-            <div class="label">Expert Tutors</div>
-          </div>
-          <div class="stat">
-            <div class="num">50+</div>
-            <div class="label">Subjects</div>
-          </div>
-          <div class="stat">
-            <div class="num">24/7</div>
-            <div class="label">Availability</div>
-          </div>
+  <section class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="label">Free Forever</div>
+        </div>
+        <div class="stat">
+          <div class="num">500+</div>
+          <div class="label">Expert Tutors</div>
+        </div>
+        <div class="stat">
+          <div class="num">50+</div>
+          <div class="label">Subjects</div>
+        </div>
+        <div class="stat">
+          <div class="num">24/7</div>
+          <div class="label">Availability</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <section id="features" class="features">
-      <div class="wrap">
-        <h2 class="title">Why Choose Freeducation?</h2>
-        <p class="sub">Quality education should be accessible to everyone</p>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">🌍</div>
-            <h3>Learn From Anywhere</h3>
-            <p>
-              Access tutoring online through Zoom, Google Meet, or any platform you prefer. 
-              No need to travel—connect with tutors from the comfort of your home.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="icon">📚</div>
-            <h3>Wide Range of Subjects</h3>
-            <p>
-              From Math and Science to Languages and Arts, we cover virtually every subject. 
-              Whether you're in elementary school or preparing for college, we've got you covered.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="icon">⏰</div>
-            <h3>Flexible Scheduling</h3>
-            <p>
-              Book sessions that fit your busy life—mornings, evenings, weekends, or weekdays. 
-              Our tutors work around your schedule, not the other way around.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="icon">🎓</div>
-            <h3>Experienced Tutors</h3>
-            <p>
-              All our tutors are thoroughly vetted and passionate about teaching. 
-              They bring real expertise and genuine care to every session.
-            </p>
-          </div>
+  <section id="features" class="features">
+    <div class="wrap">
+      <h2 class="title">Why Choose Freeducation?</h2>
+      <p class="sub">Quality education should be accessible to everyone</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🌍</div>
+          <h3>Learn From Anywhere</h3>
+          <p>Access tutoring online through Zoom, Google Meet, or any platform you prefer. No need to travel—connect with tutors from the comfort of your home.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Wide Range of Subjects</h3>
+          <p>From Math and Science to Languages and Arts, we cover virtually every subject. Whether you're in elementary school or preparing for college, we've got you covered.</p>
+        </div>
+        <div class="card">
+          <div class="icon">⏰</div>
+          <h3>Flexible Scheduling</h3>
+          <p>Book sessions that fit your busy life—mornings, evenings, weekends, or weekdays. Our tutors work around your schedule, not the other way around.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎓</div>
+          <h3>Experienced Tutors</h3>
+          <p>All our tutors are thoroughly vetted and passionate about teaching. They bring real expertise and genuine care to every session.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Steps -->
-    <section id="steps" class="steps">
-      <div class="wrap">
-        <h2 class="title">Getting Started is Easy</h2>
-        <div class="steps-grid">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Sign Up</h3>
-            <p>Create your free account in under 2 minutes. No credit card required.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>Browse Tutors</h3>
-            <p>Search our database of qualified tutors by subject, availability, and expertise.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Book a Session</h3>
-            <p>Schedule a tutoring session at a time that works for both you and your tutor.</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num">4</div>
-            <h3>Start Learning</h3>
-            <p>Join your session and begin your educational journey with expert guidance.</p>
-          </div>
+  <section id="steps" class="steps">
+    <div class="wrap">
+      <h2 class="title">Getting Started is Easy</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Sign Up</h3>
+          <p>Create your free account in under 2 minutes. No credit card required.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Browse Tutors</h3>
+          <p>Search our database of qualified tutors by subject, availability, and expertise.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Book a Session</h3>
+          <p>Schedule a tutoring session at a time that works for both you and your tutor.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Start Learning</h3>
+          <p>Join your session and begin your educational journey with expert guidance.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Quote -->
-    <section class="quote-box">
-      <div class="wrap">
-        <div class="quote-wrap">
-          <p class="quote">
-            "Freeducation changed my life. I struggled with calculus for months, but after just a 
-            few sessions with my tutor, everything clicked. Best of all, it didn't cost me a penny!"
-          </p>
-          <p class="author">Sarah Martinez</p>
-          <p class="role">College Student</p>
+  <section class="quote-box">
+    <div class="wrap">
+      <div class="quote-wrap">
+        <p class="quote">"Freeducation changed my life. I struggled with calculus for months, but after just a few sessions with my tutor, everything clicked. Best of all, it didn't cost me a penny!"</p>
+        <p class="author">Sarah Martinez</p>
+        <p class="role">College Student</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" class="cta">
+    <div class="wrap">
+      <h2>Ready to Start Your Learning Journey?</h2>
+      <p>Join thousands of students already learning with Freeducation</p>
+      <a href="home.html" class="btn-1">Get Started Today</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <h3>About Freeducation</h3>
+          <p>We're on a mission to make quality education accessible to everyone, regardless of financial circumstances.</p>
+        </div>
+        <div class="foot-col">
+          <h3>Quick Links</h3>
+          <a href="home.html">Home</a>
+          <a href="mission.html">Mission</a>
+          <a href="locations.html">Locations</a>
+          <a href="tutors.html">Find a Tutor</a>
+          <a href="signup.html">Sign Up</a>
+          <a href="donate.html">Donate</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h3>Contact Us</h3>
+          <p>Email: contact@freeducation.org</p>
+          <p>Phone: (555) 123-4567</p>
+          <p>Hours: Mon-Sun, 9AM-6PM PST</p>
         </div>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="signup" class="cta">
-      <div class="wrap">
-        <h2>Ready to Start Your Learning Journey?</h2>
-        <p>Join thousands of students already learning with Freeducation</p>
-        <a href="home.html" class="btn-1">Get Started Today</a>
+      <div class="foot-btm">
+        <p>© 2025 Freeducation. All rights reserved. | Making education free for all.</p>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="foot">
-      <div class="wrap">
-        <div class="foot-grid">
-          <div class="foot-col">
-            <h3>About Freeducation</h3>
-            <p>
-              We're on a mission to make quality education accessible to everyone, 
-              regardless of financial circumstances.
-            </p>
-          </div>
-          <div class="foot-col">
-            <h3>Quick Links</h3>
-            <a href="home.html">Home</a>
-            <a href="mission.html">Mission</a>
-            <a href="locations.html">Locations</a>
-            <a href="tutors.html">Find a Tutor</a>
-            <a href="signup.html">Sign Up</a>
-            <a href="donate.html">Donate</a>
-            <a href="contact.html">Contact</a>
-        </div>
-
-          <div class="foot-col">
-            <h3>Contact Us</h3>
-            <p>Email: contact@freeducation.org</p>
-            <p>Phone: (555) 123-4567</p>
-            <p>Hours: Mon-Sun, 9AM-6PM PST</p>
-          </div>
-        </div>
-
-        <div class="foot-btm">
-          <p>© 2025 Freeducation. All rights reserved. | Making education free for all.</p>
-        </div>
-      </div>
-    </footer>
-
-
-   <script>
+  <script>
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
-      
-      console.log('Menu toggled!');
     }
-    </script>
+  </script>
 </body>
 </html>
