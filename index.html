@@ -814,12 +814,6 @@
       Your browser does not support the audio element.
     </audio>
 
-    <div id="entry-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; font-family: 'Segoe UI', sans-serif;">
-      <h1 style="margin-bottom: 25px; font-size: 3rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; text-align: center; color: var(--gold);">FREEDUCATION</h1>
-      <button id="enter-btn" style="padding: 18px 55px; font-size: 1.3rem; background: var(--gold); color: #000; border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 0 20px var(--gold); transition: transform 0.2s ease;">
-        CLICK TO ENTER
-      </button>
-    </div>
     <nav class="topnav" id="myTopnav">
   <div class="wrap">
     <div class = "logo">
@@ -1008,28 +1002,29 @@
 
 
   <script>
-    // Handle Interactivity Events for the Local MP3
+    // Handle Audio Playback via User Scroll / Swipe
     document.addEventListener("DOMContentLoaded", () => {
-      const overlay = document.getElementById("entry-overlay");
-      const enterBtn = document.getElementById("enter-btn");
       const audio = document.getElementById("phonk-player");
 
-      enterBtn.addEventListener("click", () => {
-        // Play the downloaded MP3 file instantly
+      // Callback wrapper execution
+      const playOnScroll = () => {
         if (audio) {
-          audio.play().catch(error => {
-            console.log("Audio playback error:", error);
-          });
+          audio.play()
+            .then(() => {
+              console.log("Audio triggered successfully on scroll interaction.");
+              // Immediately unbind runtime listeners to save resource cycles
+              window.removeEventListener("scroll", playOnScroll);
+              window.removeEventListener("touchmove", playOnScroll);
+            })
+            .catch(error => {
+              console.log("Interaction intercepted by strict browser policy, re-waiting:", error);
+            });
         }
-        
-        // Remove structural mask UI smoothly
-        overlay.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-        overlay.style.opacity = "0";
-        overlay.style.transform = "scale(1.05)";
-        setTimeout(() => {
-          overlay.style.display = "none";
-        }, 400);
-      });
+      };
+
+      // Register both desktop scroll boundaries and mobile viewport finger drags
+      window.addEventListener("scroll", playOnScroll, { passive: true });
+      window.addEventListener("touchmove", playOnScroll, { passive: true });
     });
 
     // Mobile Hamburger Dropdown Menu Toggle
