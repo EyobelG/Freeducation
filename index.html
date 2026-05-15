@@ -809,10 +809,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <audio id="phonk-player" loop prefetch>
-      <source src="assets/audio/taka-la-dentro.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <audio id="phonk-player"></audio>
 
     <nav class="topnav" id="myTopnav">
   <div class="wrap">
@@ -1002,32 +999,61 @@
 
 
   <script>
-    // Handle Audio Playback via User Scroll / Swipe
+    // Automated Phonk Playlist Engine Setup
     document.addEventListener("DOMContentLoaded", () => {
       const audio = document.getElementById("phonk-player");
+      
+      // The track queue. Laurinha Costa ("67") is strictly set at index 0 to launch first.
+      const playlist = [
+        "assets/audio/laurinha-67.mp3",
+        "assets/audio/danca-sped-up.mp3",
+        "assets/audio/papta-papta.mp3",
+        "assets/audio/montagem-ladrao.mp3"
+      ];
+      
+      let isFirstTrackPlayed = false;
 
-      // Callback wrapper execution
-      const playOnScroll = () => {
+      // Function to dynamically pull a random alternative track once the initial track finishes
+      const playNextRandomTrack = () => {
+        // Generate a random selection index ignoring the first track
+        const randomIndex = Math.floor(Math.random() * (playlist.length - 1)) + 1;
+        audio.src = playlist[randomIndex];
+        audio.play().catch(e => console.log("Playlist rotational execution failure:", e));
+      };
+
+      // Listener event automatically running when a track finishes playing
+      audio.addEventListener("ended", () => {
+        isFirstTrackPlayed = true;
+        playNextRandomTrack();
+      });
+
+      // Unified initialization event trigger running on user scroll/swipe
+      const initiateAudioEngine = () => {
         if (audio) {
+          // Initialize with the preferred choice (laurinha-67.mp3)
+          if (!audio.src) {
+            audio.src = playlist[0];
+          }
+          
           audio.play()
             .then(() => {
-              console.log("Audio triggered successfully on scroll interaction.");
-              // Immediately unbind runtime listeners to save resource cycles
-              window.removeEventListener("scroll", playOnScroll);
-              window.removeEventListener("touchmove", playOnScroll);
+              console.log("Audio pipeline initialized on user scroll metric.");
+              // Destroy structural global initialization listeners immediately to preserve computational cycles
+              window.removeEventListener("scroll", initiateAudioEngine);
+              window.removeEventListener("touchmove", initiateAudioEngine);
             })
             .catch(error => {
-              console.log("Interaction intercepted by strict browser policy, re-waiting:", error);
+              console.log("Interaction check flag rejected by host layer. Retrying next move:", error);
             });
         }
       };
 
-      // Register both desktop scroll boundaries and mobile viewport finger drags
-      window.addEventListener("scroll", playOnScroll, { passive: true });
-      window.addEventListener("touchmove", playOnScroll, { passive: true });
+      // Bind scrolling triggers for desktop viewports and drag move metrics for mobile touchscreens
+      window.addEventListener("scroll", initiateAudioEngine, { passive: true });
+      window.addEventListener("touchmove", initiateAudioEngine, { passive: true });
     });
 
-    // Mobile Hamburger Dropdown Menu Toggle
+    // Mobile Hamburger Dropdown Menu Toggle Engine
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
